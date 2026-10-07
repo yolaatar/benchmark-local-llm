@@ -1,0 +1,67 @@
+{
+  "task": "task_03_explain_module",
+  "title": "Explain the morphometrics filtering + axon counting pipeline",
+  "category": "analyze_code",
+  "mode": "ask",
+  "model": "claude-sonnet",
+  "runner": "claude-code (headless)",
+  "claude_model_arg": "sonnet",
+  "models_used": [
+    "claude-sonnet-5"
+  ],
+  "repo": "C:/Users/Youssef/Documents/Cours/ADS/axondeepseg_tem",
+  "base_ref": "cba1c422dc30e7f88f9db70c56663093b7086a1c",
+  "prompt": "I'm new to this codebase. Explain how the morphometrics filtering and axon counting pipeline works\n(`axondeepseg_filter`, implemented in AxonDeepSeg/morphometrics/filter_morphometrics.py with its\nconfig filter.yaml, and `axondeepseg_count` in AxonDeepSeg/morphometrics/count_axons.py).\n\nCover: what the config file controls and how rules are applied, how the segmentation masks are\nupdated to match the filtered morphometrics, how the two counting modes work and which files they\nread, and how the two tools are meant to be chained. Finish with the pitfalls or surprising\nbehaviors a user or developer should know about. Be precise and only state what the code does.",
+  "elapsed_seconds": 95.3,
+  "timed_out": false,
+  "exit_code": 0,
+  "is_error": false,
+  "num_turns": 11,
+  "user_messages": 1,
+  "cost_usd": 0.2399474,
+  "usage": {
+    "input_tokens": 12,
+    "cache_creation_input_tokens": 27860,
+    "cache_read_input_tokens": 171717,
+    "output_tokens": 9414,
+    "output_tokens_details": {
+      "thinking_tokens": 4405
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 27860,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 3447,
+        "cache_read_input_tokens": 39834,
+        "cache_creation_input_tokens": 1589,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 1589
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "final_answer": "I've read both tools, the shipped `filter.yaml`, `params.py`, `merge_masks`, the docs section, and the labeling code in `compute_morphometrics.py`. Nothing was run, so everything below comes from reading the code.\n\n## `axondeepseg_filter` (`filter_morphometrics.py`)\n\n**Config (`filter.yaml`)**\n- The file must have exactly the keys `myelinated` and `unmyelinated`. Anything else raises `ValueError` (`read_config`).\n- Each key holds a list of single-key dicts. The shipped default is:\n  ```yaml\n  myelinated:\n    - valid-g-ratio-only: True\n    - axon-diam-gt: ~\n  unmyelinated:\n    - axon-diam-gt: ~\n    - solidity-gt: ~\n    - axon-area-lt: ~\n  ```\n- Out of the box, only the g-ratio rule is active. A value of `~` disables a rule.\n- The default config is `filter.yaml` next to the module. `-c` overrides it.\n\n**Rules**\n- `apply_myelinated_rules` and `apply_unmyelinated_rules` walk the list in order and use `match` on each dict. Each rule filters the dataframe, so the rules combine as an AND.\n- Myelinated rules:\n  - `valid-g-ratio-only: True` keeps `0 < gratio < 1` and drops NaN.\n  - `axon-diam-gt` keeps `axon_diam (um) > t`.\n- Unmyelinated rules:\n  - `axon-diam-gt` keeps `axon_diam (um) > t`.\n  - `solidity-gt` keeps `solidity > t`.\n  - `axon-area-lt` keeps `axon_area (um^2) < t`.\n- Any other rule logs `Unknown rule` and is skipped. That includes a rule from the other list, such as `solidity-gt` under `myelinated`.\n\n**File discovery (`main`)**\n- If `-i` is a file, it is treated as the single myelinated file. If it is a folder, the tool globs `*_axon_morphometrics.xlsx`, non-recursively.\n- For each myelinated file, the unmyelinated file is found by replacing `_axon_` with `_uaxon_` in the path. It is only used if it exists.\n- Myelinated files are processed first, then unmyelinated files.\n\n**Output**\n- Each file is read with `pd.read_excel`, filtered, and written with `index=False`.\n- The `Unnamed: 0` column is renamed to `''`. This first column holds the original axon index, and it is preserved so the rows stay traceable.\n- Without `-o` the result goes to `<name>_filtered.xlsx`. With `-o` the original file is overwritten.\n\n**Mask updating (`-m`, `mask_updater`)**\n- Valid IDs are the first column of the filtered dataframe, plus 1. Instance label = axon index + 1.\n- Myelinated:\n  - It needs both `_seg-axon.png` and `_seg-myelin.png`. If either is missing, it warns and skips.\n  - The instance map comes from `_instance-map.png`, read as 16-bit.\n  - If that file is absent, it recomputes the map with connected-component labeling (connectivity 2) plus `get_watershed_segmentation`.\n  - Every pixel whose label is not in the valid IDs is zeroed in both the axon and myelin masks.\n  - Output is `_seg-axon_filtered.png` and `_seg-myelin_filtered.png`, or an overwrite with `-o`.\n  - It then calls `merge_masks` on the two written paths to regenerate the axonmyelin mask. That becomes `_seg-axonmyelin_filtered.png`, or `_seg-axonmyelin.png` with `-o`.\n- Unmyelinated:\n  - It needs `_seg-uaxon.png`, and warns and skips if missing.\n  - The instance map is `measure.label(mask, connectivity=1)`, recomputed each time. This matches `compute_morphometrics`, which uses connectivity 1 when there is no myelin mask.\n  - Non-valid components are zeroed, and the result is saved as `_seg-uaxon_filtered.png` or overwritten.\n\n## `axondeepseg_count` (`count_axons.py`)\n\n**Input selection**\n- The tool iterates over the original images, not the morphometrics files. It takes files with a valid image extension that don't end in an ignored suffix.\n- Ignored suffixes are the `.png` entries of `generated_file_suffixes` plus `_seg-*_filtered.png`, `_seg-nuclei.png` and `_seg-process.png`.\n- Paths are built as `img.with_suffix('') + <suffix>`.\n- Results are written to a CSV with columns `image, axon_count, uaxon_count`. The default name is `axon_counts.csv`, written to the current working directory. Totals are only logged.\n\n**Default mode (morphometrics)**\n- It reads `<base>_axon_morphometrics.xlsx` and `<base>_uaxon_morphometrics.xlsx`.\n- For each of the two, the `_filtered.xlsx` variant is used if it exists. The choice is made independently for axons and unmyelinated axons.\n- The count is `len(read_excel(...))`, so the number of rows.\n- A missing myelinated file raises an error. A missing unmyelinated file gives a count of 0.\n\n**Mask mode (`-m`)**\n- It reads `<base>_seg-axonmyelin.png` and `<base>_seg-uaxon.png`, again preferring the `_filtered.png` variant if it exists.\n- It thresholds at `> 200`, which keeps only axon pixels because myelin is 127. Then it counts connected components with `measure.label` at its default connectivity, which is 8-connected in 2D.\n- It also logs the total pixel area.\n- A missing axonmyelin mask raises an error. A missing uaxon mask gives a count of 0.\n\n## Chaining\n\nRun `axondeepseg_filter -i folder [-m]` without `-o`. Then run `axondeepseg_count -i folder [-m]`. The counter automatically prefers the `_filtered` files in both modes, so the counts reflect the filtered data.\n\nThe pairing works like this:\n- `filter` alone produces filtered xlsx files, which the default count mode uses.\n- `filter -m` also produces the filtered masks, which count's mask mode uses.\n- `filter -o` leaves no `_filtered` files. The overwritten originals are what count reads.\n\n## Pitfalls\n\n1. **The documented config format doesn't work.**\n   - `docs/source/documentation.rst` shows a dict (`myelinated: {valid-g-ratio-only: True, axon-diam-gt: 0.5}`), but the code expects a list of single-key dicts.\n   - With the docs format, iterating gives string keys. Every one hits `Unknown rule`, and nothing is filtered, not even the g-ratio.\n   - Only the shipped list format is safe.\n2. **Multi-key list items only apply one rule.** If one list item contains several keys, only the first matching `case` runs, and the others are ignored.\n3. **`valid-g-ratio-only: False` warns as unknown.** The pattern only matches `True`, so `False` falls through to `Unknown rule`.\n4. **A threshold of `0` is treated as disabled.** The rules use `if threshold:`, so `0` is falsy, like `~`.\n5. **Re-running `-m -o` corrupts unmyelinated masks.**\n   - The unmyelinated instance map is recomputed by relabeling the mask on disk. After an overwrite, the components are renumbered.\n   - A second run then compares the original xlsx IDs against the new labels and can remove the wrong axons.\n   - Myelinated masks are safer because `_instance-map.png` isn't modified. Non-overwrite runs always start from the raw masks.\n6. **`merge_masks` builds the output name with `name.replace('axon', 'axonmyelin')`.** This replaces every occurrence of `axon` in the filename. An image named like `axon_sample1` gets a wrong axonmyelin output name. `merge_masks` also reads without `allow_large_images`, so on very large images that final step can fail even when `--allow-large-images` is set.\n7. **Connectivity mismatch for unmyelinated axons.** Morphometrics and `filter` label unmyelinated axons with connectivity 1 (4-connected). Count mask mode uses 8-connected. Diagonally touching unmyelinated axons count as two in xlsx mode and one in mask mode.\n8. **A filtered xlsx always wins over the original.** `count` only checks whether the `_filtered` file exists, so a stale one from an older filter run will still be used.\n9. **`with_suffix('')` on `.ome.tif` names.** It strips only the last suffix, so `x.ome.tif` becomes `x.ome`. I didn't verify whether that matches how segmentation names its outputs for these files.\n10. **`filter` path handling is fragile.**\n    - A single-file `-i` is always treated as myelinated. Passing a `_filtered.xlsx` file makes the mask-name replacement a no-op.\n    - The `_axon_` to `_uaxon_` replacement is applied to the whole path string, so a folder name containing `_axon_` is also rewritten.\n    - Zero matching files is not an error, only a log line.\n11. **Empty or partial config files fail unhelpfully.** An empty YAML makes `config.keys()` fail with an `AttributeError`, not the friendly `ValueError`. A missing `solidity` or `axon_area (um^2)` column would raise a `KeyError`.\n12. **`count` requires `-i` in practice.** It isn't marked `required`, so omitting it fails with a `TypeError` from `Path(None)`.",
+  "files_changed": [],
+  "diff": "",
+  "review": {
+    "success": null,
+    "notes": ""
+  },
+  "artifacts": {
+    "repo": "C:\\Users\\Youssef\\Documents\\Cours\\side_hustle\\local_models\\benchmark-local-llm\\work\\task_03_explain_module\\claude-sonnet\\repo",
+    "claude_stdout": "C:\\Users\\Youssef\\Documents\\Cours\\side_hustle\\local_models\\benchmark-local-llm\\work\\task_03_explain_module\\claude-sonnet\\claude_stdout.json"
+  },
+  "date": "2026-09-19T02:50:26"
+}

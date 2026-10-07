@@ -1,0 +1,39 @@
+{
+  "task": "task_05_refactor",
+  "title": "Centralize large-image handling in ads_utils",
+  "category": "refactor",
+  "mode": "code",
+  "model": "qwen2.5-coder:14b",
+  "runner": "aider",
+  "aider_model": "ollama_chat/qwen2.5-coder:14b",
+  "repo": "C:/Users/Youssef/Documents/Cours/ADS/axondeepseg_tem",
+  "base_ref": "cba1c422dc30e7f88f9db70c56663093b7086a1c",
+  "prompt": "The \"allow large images\" logic is duplicated across the codebase and has needed several bug fixes\nbecause call sites drifted apart. Refactor it, without changing behavior:\n\n1. In AxonDeepSeg/ads_utils.py, add a context manager (e.g. `large_image_limit(allow_large_images)`)\n   that temporarily raises PIL's `Image.MAX_IMAGE_PIXELS` to `_LARGE_IMAGE_PIXEL_LIMIT` when\n   `allow_large_images` is True and always restores the previous value on exit, even on error.\n   Use it everywhere the limit is currently saved/raised/restored by hand (`imread`, `get_imshape`),\n   and in `apply_model.axon_segmentation`, which currently raises the limit and never restores it\n   (keep its ADS_ALLOW_LARGE_IMAGES environment variable handling as is).\n2. In ads_utils.py, add a helper `add_allow_large_images_argument(parser)` that registers the\n   `--allow-large-images` CLI flag, and use it in segment.py, morphometrics/count_axons.py and\n   morphometrics/filter_morphometrics.py instead of their three copies of the argparse block.\n\nPublic function signatures and CLI behavior must stay the same.",
+  "elapsed_seconds": 382.0,
+  "timed_out": false,
+  "exit_code": 0,
+  "llm_calls": 2,
+  "user_messages": 1,
+  "auto_retries": 1,
+  "applied_edits": [],
+  "edit_format_errors": 0,
+  "search_replace_failures": 0,
+  "reflection_limit_hit": false,
+  "context_window_exhausted": false,
+  "tokens_sent": 40000,
+  "tokens_received": 5234,
+  "final_answer": "Ok, I will proceed with the proposed changes. Please review the *SEARCH/REPLACE* blocks and let me know if you need any modifications or additional changes.",
+  "files_changed": [],
+  "diff": "",
+  "review": {
+    "success": null,
+    "notes": ""
+  },
+  "artifacts": {
+    "repo": "C:\\Users\\Youssef\\Documents\\Cours\\side_hustle\\local_models\\benchmark-local-llm\\work\\task_05_refactor\\qwen2.5-coder-14b\\repo",
+    "aider_stdout": "C:\\Users\\Youssef\\Documents\\Cours\\side_hustle\\local_models\\benchmark-local-llm\\work\\task_05_refactor\\qwen2.5-coder-14b\\aider_stdout.txt",
+    "llm_history": "C:\\Users\\Youssef\\Documents\\Cours\\side_hustle\\local_models\\benchmark-local-llm\\work\\task_05_refactor\\qwen2.5-coder-14b\\llm_history.txt",
+    "chat_history": "C:\\Users\\Youssef\\Documents\\Cours\\side_hustle\\local_models\\benchmark-local-llm\\work\\task_05_refactor\\qwen2.5-coder-14b\\chat_history.md"
+  },
+  "date": "2026-09-18T15:23:49"
+}

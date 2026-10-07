@@ -1,0 +1,6 @@
+
+=== task_01_add_feature x qwen2.5-coder:14b
+   369s, 4 LLM calls, 4 files changed -> results\custom_task_01_add_feature_qwen2.5-coder-14b.json
+
+=== Summary (review success by hand in results/custom_*.json)
+task_01_add_feature        qwen2.5-coder:14b              369s   4 LLM calls   4 files

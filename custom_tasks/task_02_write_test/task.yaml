@@ -1,0 +1,26 @@
+# Reference: test/morphometrics/test_filter_morphometrics.py from PR #1005 (12 tests), deleted before the run.
+status: ready
+title: "Rewrite test_filter_morphometrics.py"
+category: write_code
+mode: code
+repo: C:/Users/Youssef/Documents/Cours/ADS/axondeepseg_tem
+base_ref: cba1c422dc30e7f88f9db70c56663093b7086a1c          # master after PR #1005
+files:
+  - test/morphometrics/test_filter_morphometrics.py
+read_only:
+  - AxonDeepSeg/morphometrics/filter_morphometrics.py
+  - AxonDeepSeg/morphometrics/filter.yaml
+  - test/morphometrics/test_aggregate.py
+test_cmd: "C:/Users/Youssef/miniconda3/envs/ads/python.exe -m pytest test/morphometrics/test_filter_morphometrics.py -q -p no:cacheprovider"
+setup_cmds:
+  - git rm -q test/morphometrics/test_filter_morphometrics.py
+map_tokens: null
+prompt: |
+  Write a pytest test module at test/morphometrics/test_filter_morphometrics.py for
+  AxonDeepSeg/morphometrics/filter_morphometrics.py (the `axondeepseg_filter` CLI).
+
+  Follow the conventions of the existing tests in test/morphometrics (a `TestCore` class, tests marked
+  with `@pytest.mark.unit`). Cover `read_config` (default config file and error cases),
+  `apply_myelinated_rules` and `apply_unmyelinated_rules` (each rule, threshold edge cases, disabled
+  rules, unknown rules), and `main()` end to end on small morphometrics files created in `tmp_path`.
+  Do not modify filter_morphometrics.py. The tests must pass on the current code.

@@ -1,0 +1,22 @@
+
+=== task_01_add_feature x qwen3.6:35b-a3b-coding
+   236s, 2 LLM calls, 4 files changed -> results\custom_task_01_add_feature_qwen3.6-35b-a3b-coding.json
+
+=== task_02_write_test x qwen3.6:35b-a3b-coding
+   565s, 3 LLM calls, 1 files changed -> results\custom_task_02_write_test_qwen3.6-35b-a3b-coding.json
+
+=== task_03_explain_module x qwen3.6:35b-a3b-coding
+   81s, 1 LLM calls, 0 files changed -> results\custom_task_03_explain_module_qwen3.6-35b-a3b-coding.json
+
+=== task_04_find_bug x qwen3.6:35b-a3b-coding
+   41s, 1 LLM calls, 1 files changed -> results\custom_task_04_find_bug_qwen3.6-35b-a3b-coding.json
+
+=== task_05_refactor x qwen3.6:35b-a3b-coding
+   401s, 3 LLM calls, 5 files changed -> results\custom_task_05_refactor_qwen3.6-35b-a3b-coding.json
+
+=== Summary (review success by hand in results/custom_*.json)
+task_01_add_feature        qwen3.6:35b-a3b-coding         236s   2 LLM calls   4 files
+task_02_write_test         qwen3.6:35b-a3b-coding         565s   3 LLM calls   1 files
+task_03_explain_module     qwen3.6:35b-a3b-coding          80s   1 LLM calls   0 files
+task_04_find_bug           qwen3.6:35b-a3b-coding          41s   1 LLM calls   1 files
+task_05_refactor           qwen3.6:35b-a3b-coding         401s   3 LLM calls   5 files

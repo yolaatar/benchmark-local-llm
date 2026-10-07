@@ -1,0 +1,14 @@
+
+=== task_02_write_test x claude-sonnet
+   89s, 8 turns, $0.23, 1 files changed -> results\custom_task_02_write_test_claude-sonnet.json
+
+=== task_03_explain_module x claude-sonnet
+   95s, 11 turns, $0.24, 0 files changed -> results\custom_task_03_explain_module_claude-sonnet.json
+
+=== task_05_refactor x claude-sonnet
+   106s, 24 turns, $0.35, 5 files changed -> results\custom_task_05_refactor_claude-sonnet.json
+
+=== Summary
+task_02_write_test             89s  8 turns    $0.23  1 files
+task_03_explain_module         95s  11 turns    $0.24  0 files
+task_05_refactor              106s  24 turns    $0.35  5 files

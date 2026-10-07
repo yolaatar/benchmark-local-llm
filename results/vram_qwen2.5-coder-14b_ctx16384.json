@@ -1,0 +1,17 @@
+{
+  "model": "qwen2.5-coder:14b",
+  "num_ctx": 16384,
+  "gpu_total_mib": 16311,
+  "gpu_baseline_mib": 1397,
+  "gpu_peak_mib": 12942,
+  "gpu_used_by_model_mib": 11545,
+  "ollama_size_gb": 11.9,
+  "ollama_size_vram_gb": 11.9,
+  "gpu_fraction": 1.0,
+  "load_s": 6.0,
+  "prompt_tok_s": 547.3,
+  "gen_tokens": 930,
+  "gen_tok_s": 41.3,
+  "wall_s": 28.6,
+  "measured_at": "2026-09-18 12:21:27"
+}

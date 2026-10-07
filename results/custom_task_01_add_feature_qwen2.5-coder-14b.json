@@ -1,0 +1,61 @@
+{
+  "task": "task_01_add_feature",
+  "title": "Add --allow-large-images to axondeepseg_morphometrics",
+  "category": "write_code",
+  "mode": "code",
+  "model": "qwen2.5-coder:14b",
+  "runner": "aider",
+  "aider_model": "ollama_chat/qwen2.5-coder:14b",
+  "edit_format_override": null,
+  "repo": "C:/Users/Youssef/Documents/Cours/ADS/axondeepseg_tem",
+  "base_ref": "bb108a4d980ee3a8171d7e796aca3a4a7ec7b7a9",
+  "prompt": "`axondeepseg_morphometrics` crashes with PIL's `DecompressionBombError` on very large microscopy\nimages, even though AxonDeepSeg already has a mechanism for this: `ads_utils.imread()` accepts an\n`allow_large_images` argument, and the segmentation CLI (`AxonDeepSeg/segment.py`) exposes it as an\n`--allow-large-images` flag.\n\nAdd the same `--allow-large-images` flag to `axondeepseg_morphometrics`\n(AxonDeepSeg/morphometrics/launch_morphometrics_computation.py) and make sure every image or mask read\nduring the morphometrics computation honors it, including the colored image with axon index numbers\ngenerated in AxonDeepSeg/postprocessing.py. Keep the default behavior unchanged when the flag is not\npassed. Add unit tests covering the new flag in the existing test files.",
+  "elapsed_seconds": 369.4,
+  "timed_out": false,
+  "exit_code": 0,
+  "llm_calls": 4,
+  "user_messages": 1,
+  "auto_retries": 3,
+  "applied_edits": [],
+  "edit_format_errors": 4,
+  "search_replace_failures": 8,
+  "reflection_limit_hit": true,
+  "context_window_exhausted": false,
+  "tokens_sent": 102000,
+  "tokens_received": 3098,
+  "final_answer": "I apologize for the confusion. Let's try again with more precise *SEARCH/REPLACE* blocks.\n\n### AxonDeepSeg\\morphometrics\\launch_morphometrics_computation.py\n```python\nAxonDeepSeg\\morphometrics\\launch_morphometrics_computation.py\n```python\n<<<<<<< SEARCH\n        img = ads.imread(path_img)\n        pred = ads.imread(path_prediction)\n=======\n        img = ads.imread(path_img, allow_large_images=allow_large_images)\n        pred = ads.imread(path_prediction, allow_large_images=allow_large_images)\n>>>>>>> REPLACE\n```\n\n```python\nAxonDeepSeg\\morphometrics\\launch_morphometrics_computation.py\n```python\n<<<<<<< SEARCH\n        pred_nerve = load_mask(current_path_target, 'nerve', nerve_suffix)\n        pred_axon = load_mask(current_path_target, 'axon', axon_suffix)\n        pred_myelin = load_mask(current_path_target, 'myelin', myelin_suffix)\n=======\n        pred_nerve = load_mask(current_path_target, 'nerve', nerve_suffix, allow_large_images=allow_large_images)\n        pred_axon = load_mask(current_path_target, 'axon', axon_suffix, allow_large_images=allow_large_images)\n        pred_myelin = load_mask(current_path_target, 'myelin', myelin_suffix, allow_large_images=allow_large_images)\n>>>>>>> REPLACE\n```\n\nPlease review these corrected blocks and let me know if you need any further modifications.",
+  "files_changed": [
+    {
+      "path": "AxonDeepSeg/morphometrics/launch_morphometrics_computation.py",
+      "added": "10",
+      "removed": "3"
+    },
+    {
+      "path": "AxonDeepSeg/postprocessing.py",
+      "added": "1",
+      "removed": "1"
+    },
+    {
+      "path": "test/morphometrics/test_launch_morphometrics_computation.py",
+      "added": "9",
+      "removed": "0"
+    },
+    {
+      "path": "test/test_postprocessing.py",
+      "added": "1",
+      "removed": "1"
+    }
+  ],
+  "diff": "diff --git a/AxonDeepSeg/morphometrics/launch_morphometrics_computation.py b/AxonDeepSeg/morphometrics/launch_morphometrics_computation.py\nindex 2dffee1..9866353 100644\n--- a/AxonDeepSeg/morphometrics/launch_morphometrics_computation.py\n+++ b/AxonDeepSeg/morphometrics/launch_morphometrics_computation.py\n@@ -171,6 +171,12 @@ def main(argv=None):\n             +'Works for myelinated axons with axon_shape=\"circle\" or axon_shape=\"ellipse\". \\n'\n             +'Skipped for unmyelinated and nerve modes.'\n     )\n+    ap.add_argument(\n+        '--allow-large-images',\n+        required=False,\n+        action='store_true',\n+        help='Allow loading large images that would otherwise trigger a DecompressionBombError.'\n+    )\n \n     # Processing the arguments\n     args = vars(ap.parse_args(argv))\n@@ -181,6 +187,7 @@ def main(argv=None):\n     unmyelinated_mode = args[\"unmyelinated\"]\n     nerve_mode = args[\"nerve\"]\n     diameter_overlay_flag = args[\"diameter_overlay\"]\n+    allow_large_images = args[\"allow_large_images\"]\n     if nerve_mode:\n         morphometrics_mode = 'nerve'\n         target_suffix = nerve_suffix\n@@ -251,11 +258,11 @@ def main(argv=None):\n             match morphometrics_mode:\n                 case 'myelinated':\n                     # load the axon and myelin masks\n-                    pred_axon = load_mask(current_path_target, 'axon', axon_suffix)\n-                    pred_myelin = load_mask(current_path_target, 'myelin', myelin_suffix)\n+                    pred_axon = load_mask(current_path_target, 'axon', axon_suffix, allow_large_images=allow_large_images)\n+                    pred_myelin = load_mask(current_path_target, 'myelin', myelin_suffix, allow_large_images=allow_large_images)\n                 case 'unmyelinated':\n                     # load the unmyelinated axon mask\n-                    pred_uaxon = load_mask(current_path_target, 'unmyelinated axon', unmyelinated_suffix)\n+                    pred_uaxon = load_mask(current_path_target, 'unmyelinated axon', unmyelinated_suffix, allow_large_images=allow_large_images)\n                 case 'nerve':\n                     # load the nerve mask\n                     pred_nerve = load_mask(current_path_target, 'nerve', nerve_suffix)\ndiff --git a/AxonDeepSeg/postprocessing.py b/AxonDeepSeg/postprocessing.py\nindex 6e429ec..1dca0e4 100644\n--- a/AxonDeepSeg/postprocessing.py\n+++ b/AxonDeepSeg/postprocessing.py\n@@ -138,7 +138,7 @@ def generate_and_save_colored_image_with_index_numbers(filename, axonmyelin_imag\n     :param index_image_array: The array containing the index image\n     :type index_image_array: 2D Numpy array\n     \"\"\"\n-    seg = Image.open(axonmyelin_image_path)\n+    seg = Image.open(axonmyelin_image_path, mode='r')\n     index_image = Image.fromarray(index_image_array)\n     colored_image = ImageOps.colorize(seg, black=\"black\", white=\"blue\", mid=\"red\",\n                                       blackpoint=params.intensity[\"background\"],\ndiff --git a/test/morphometrics/test_launch_morphometrics_computation.py b/test/morphometrics/test_launch_morphometrics_computation.py\nindex e442d66..8edfbab 100644\n--- a/test/morphometrics/test_launch_morphometrics_computation.py\n+++ b/test/morphometrics/test_launch_morphometrics_computation.py\n@@ -115,6 +115,15 @@ class TestCore(object):\n             AxonDeepSeg.morphometrics.launch_morphometrics_computation.main([\"-s\", \"0.07\", \"-i\", str(pathImg), \"-f\", str(morph_suffix)])\n \n         assert (pytest_wrapped_e.type == SystemExit) and (pytest_wrapped_e.value.code == 0) and self.morphometricsPath.exists()\n+\n+    @pytest.mark.unit\n+    def test_main_cli_runs_successfully_with_valid_inputs_and_allow_large_images(self):\n+        pathImg = self.dataPath / 'image.png'\n+\n+        with pytest.raises(SystemExit) as pytest_wrapped_e:\n+            AxonDeepSeg.morphometrics.launch_morphometrics_computation.main([\"-s\", \"0.07\", \"-i\", str(pathImg), \"-f\", str(morph_suffix), \"--allow-large-images\"])\n+\n+        assert (pytest_wrapped_e.type == SystemExit) and (pytest_wrapped_e.value.code == 0) and self.morphometricsPath.exists()\n     \n     @pytest.mark.unit\n     def test_main_cli_runs_successfully_with_valid_inputs_for_folder_input_with_pixel_size_file(self):\ndiff --git a/test/test_postprocessing.py b/test/test_postprocessing.py\nindex a08263f..5f643f5 100644\n--- a/test/test_postprocessing.py\n+++ b/test/test_postprocessing.py\n@@ -91,7 +91,7 @@ class TestCore(object):\n         expected_image = np.asarray(Image.open(self.test_files_path / \"test_axonmyelin_index.png\"))\n         output_image_path = self.test_files_path / \"output_axonmyelin_index.png\"\n         axonmyelin_image_path = self.test_files_path / \"test_axonmyelin.png\"\n-        axonmyelin_image = ads_utils.imread(axonmyelin_image_path)\n+        axonmyelin_image = ads_utils.imread(axonmyelin_image_path, allow_large_images=True)\n         # Attempt to recreate the test image\n         index_array =  postprocessing.generate_axon_numbers_image(\n             centroid_index=np.array([0]),\n",
+  "review": {
+    "success": null,
+    "notes": ""
+  },
+  "artifacts": {
+    "repo": "C:\\Users\\Youssef\\Documents\\Cours\\side_hustle\\local_models\\benchmark-local-llm\\work\\task_01_add_feature\\qwen2.5-coder-14b\\repo",
+    "aider_stdout": "C:\\Users\\Youssef\\Documents\\Cours\\side_hustle\\local_models\\benchmark-local-llm\\work\\task_01_add_feature\\qwen2.5-coder-14b\\aider_stdout.txt",
+    "llm_history": "C:\\Users\\Youssef\\Documents\\Cours\\side_hustle\\local_models\\benchmark-local-llm\\work\\task_01_add_feature\\qwen2.5-coder-14b\\llm_history.txt",
+    "chat_history": "C:\\Users\\Youssef\\Documents\\Cours\\side_hustle\\local_models\\benchmark-local-llm\\work\\task_01_add_feature\\qwen2.5-coder-14b\\chat_history.md"
+  },
+  "date": "2026-09-18T15:57:12"
+}

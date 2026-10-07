@@ -1,0 +1,41 @@
+# Aider model settings for the local Ollama models.
+# Polyglot benchmark: 16k context, every model except the 35B MoE fits fully in VRAM.
+# Loaded with --model-settings-file (custom tasks) or --read-model-settings (polyglot harness).
+# num_ctx is fixed on purpose: aider otherwise resizes it per request, which makes Ollama reload the model.
+# num_predict caps each answer: Ollama never stops a model stuck in a repetition loop otherwise
+# (context shift keeps generating, observed 66k tokens from a small model), and aider's harness
+# would wait on it for up to 24h. qwen3.6 gets more room because its thinking counts toward the cap.
+
+- name: ollama_chat/qwen2.5-coder:7b
+  edit_format: diff
+  use_repo_map: true
+  examples_as_sys_msg: true
+  extra_params:
+    num_ctx: 16384
+    num_predict: 8192
+
+- name: ollama_chat/qwen2.5-coder:14b
+  edit_format: diff
+  use_repo_map: true
+  examples_as_sys_msg: true
+  extra_params:
+    num_ctx: 16384
+    num_predict: 8192
+
+- name: ollama_chat/qwen3.6:35b-a3b-coding
+  edit_format: diff
+  use_repo_map: true
+  examples_as_sys_msg: true
+  extra_params:
+    num_ctx: 16384
+    num_predict: 12288
+
+# Round 3: the lab model on tassan, reached through the tunnel (OLLAMA_API_BASE=http://127.0.0.1:11435).
+# Same 16k context as round 1 so the numbers compare; the model has room for much more.
+- name: ollama_chat/qwen3-coder-next:latest
+  edit_format: diff
+  use_repo_map: true
+  examples_as_sys_msg: true
+  extra_params:
+    num_ctx: 16384
+    num_predict: 8192

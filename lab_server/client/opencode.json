@@ -1,0 +1,38 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "share": "disabled",
+  "autoupdate": "notify",
+  "enabled_providers": ["tassan", "tassan-ollama"],
+  "provider": {
+    "tassan": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "tassan vLLM (NeuroPoly)",
+      "options": {
+        "baseURL": "http://127.0.0.1:8001/v1",
+        "apiKey": "{env:TASSAN_VLLM_KEY}"
+      },
+      "models": {
+        "qwen3-coder-next": {
+          "name": "Qwen3-Coder-Next 80B (tassan, vLLM)",
+          "limit": { "context": 131072, "output": 16384 }
+        }
+      }
+    },
+    "tassan-ollama": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "tassan Ollama (NeuroPoly)",
+      "options": {
+        "baseURL": "http://127.0.0.1:11435/v1",
+        "apiKey": "ollama"
+      },
+      "models": {
+        "qwen3-coder-next-cc": {
+          "name": "Qwen3-Coder-Next 80B (tassan, Ollama, 64k)",
+          "limit": { "context": 65536, "output": 16384 }
+        }
+      }
+    }
+  },
+  "model": "tassan/qwen3-coder-next",
+  "small_model": "tassan/qwen3-coder-next"
+}

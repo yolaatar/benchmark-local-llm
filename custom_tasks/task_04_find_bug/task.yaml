@@ -1,0 +1,22 @@
+# Reference fix: issue #1003, fixed in PR #1005 (apply_model.py, 2 lines: list equality -> subset test).
+status: ready
+title: "Missing axonmyelin mask with 3-class models (#1003)"
+category: analyze_code
+mode: code
+repo: C:/Users/Youssef/Documents/Cours/ADS/axondeepseg_tem
+base_ref: bb108a4d980ee3a8171d7e796aca3a4a7ec7b7a9          # before PR #1005
+files:
+  - AxonDeepSeg/apply_model.py
+  - AxonDeepSeg/segment.py
+  - AxonDeepSeg/visualization/merge_masks.py
+read_only: []
+test_cmd: null
+setup_cmds: []
+map_tokens: null
+prompt: |
+  Bug report: when I segment images with a model that has 3 output classes (axon, myelin and
+  unmyelinated axon), the combined `<image>_seg-axonmyelin.png` mask is never written. With the
+  usual 2-class models (axon + myelin) it is. The axon and myelin masks themselves are saved fine.
+  This breaks `axondeepseg_morphometrics`, which needs the axonmyelin mask to overlay the index numbers.
+
+  Find the root cause, explain it briefly, and fix it with a minimal change.

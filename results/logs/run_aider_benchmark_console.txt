@@ -1,0 +1,107 @@
+25 Python exercises (seed 42): affine-cipher, beer-song, book-store, bottle-song, bowling, dominoes, dot-dsl, food-chain, forth, grade-school, hangman, list-ops, pig-latin, poker, react, rest-api, robot-name, sgf-parsing, simple-linked-list, transpose, two-bucket, variable-length-quantity, wordy, zebra-puzzle, zipper
+WARNING: running LLM-generated code natively (no Docker), see NOTES.md.
+
+=== qwen2.5-coder:7b -> 2026-09-18-12-41-51--bench-qwen2.5-coder-7b
+   loaded qwen2.5-coder:7b in 7.4s, 5.6/5.6 GB on GPU (num_ctx=16384)
+   [1/25] wordy
+   [2/25] dominoes
+   [3/25] robot-name
+   [4/25] react
+   [5/25] book-store
+   [6/25] grade-school
+   [7/25] forth
+   [8/25] rest-api
+   [9/25] dot-dsl
+   [10/25] zipper
+25 Python exercises (seed 42): affine-cipher, beer-song, book-store, bottle-song, bowling, dominoes, dot-dsl, food-chain, forth, grade-school, hangman, list-ops, pig-latin, poker, react, rest-api, robot-name, sgf-parsing, simple-linked-list, transpose, two-bucket, variable-length-quantity, wordy, zebra-puzzle, zipper
+WARNING: running LLM-generated code natively (no Docker), see NOTES.md.
+
+=== qwen2.5-coder:7b -> 2026-09-18-12-41-51--bench-qwen2.5-coder-7b
+   loaded qwen2.5-coder:7b in 2.7s, 5.6/5.6 GB on GPU (num_ctx=16384)
+   [1/25] transpose
+   [2/25] affine-cipher
+   [3/25] zipper
+   [4/25] sgf-parsing
+   [5/25] two-bucket
+   [6/25] pig-latin
+   [7/25] hangman
+   [8/25] bowling
+   [9/25] bottle-song
+   [10/25] food-chain
+   [11/25] poker
+   [12/25] variable-length-quantity
+   [13/25] list-ops
+   [14/25] simple-linked-list
+   [15/25] beer-song
+   [16/25] zebra-puzzle
+   done in 10.7 min (25/25 exercises): pass@1=4.0%, pass@2=8.0% -> results\aider_benchmark_qwen2.5-coder-7b.json
+
+=== qwen2.5-coder:14b -> 2026-09-18-12-58-23--bench-qwen2.5-coder-14b
+   loaded qwen2.5-coder:14b in 6.9s, 11.9/11.9 GB on GPU (num_ctx=16384)
+   [1/25] hangman
+   [2/25] bottle-song
+   [3/25] poker
+   Traceback:
+   [4/25] beer-song
+   [5/25] grade-school
+   [6/25] variable-length-quantity
+   [7/25] affine-cipher
+   [8/25] dot-dsl
+   [9/25] robot-name
+   [10/25] transpose
+   [11/25] forth
+   Traceback (most recent call last):
+   Traceback (most recent call last):
+   Traceback (most recent call last):
+   Traceback (most recent call last):
+   Traceback (most recent call last):
+   [12/25] simple-linked-list
+   [13/25] book-store
+   [14/25] wordy
+   [15/25] list-ops
+   [16/25] sgf-parsing
+   [17/25] two-bucket
+   [18/25] zebra-puzzle
+   [19/25] food-chain
+   [20/25] react
+   [21/25] rest-api
+   [22/25] bowling
+   Traceback (most recent call last):
+   [23/25] pig-latin
+   [24/25] dominoes
+   [25/25] zipper
+   done in 29.8 min (25/25 exercises): pass@1=4.0%, pass@2=8.0% -> results\aider_benchmark_qwen2.5-coder-14b.json
+
+=== qwen3.6:35b-a3b-coding -> 2026-09-18-13-28-21--bench-qwen3.6-35b-a3b-coding
+   loaded qwen3.6:35b-a3b-coding in 20.0s, 13.3/22.5 GB on GPU (num_ctx=16384)
+   [1/25] rest-api
+   [2/25] dot-dsl
+   [3/25] list-ops
+   [4/25] zipper
+   [5/25] variable-length-quantity
+   [6/25] beer-song
+   [7/25] zebra-puzzle
+   [8/25] hangman
+   [9/25] book-store
+   [10/25] food-chain
+   [11/25] grade-school
+   [12/25] sgf-parsing
+   [13/25] react
+   [14/25] transpose
+   [15/25] bowling
+   [16/25] wordy
+   [17/25] robot-name
+   [18/25] poker
+   [19/25] bottle-song
+   [20/25] two-bucket
+   [21/25] dominoes
+   [22/25] simple-linked-list
+   [23/25] affine-cipher
+   [24/25] pig-latin
+   [25/25] forth
+   done in 60.3 min (25/25 exercises): pass@1=44.0%, pass@2=60.0% -> results\aider_benchmark_qwen3.6-35b-a3b-coding.json
+
+=== Summary
+qwen2.5-coder:7b           pass@1=  4.0%  pass@2=  8.0%  17.2s/case
+qwen2.5-coder:14b          pass@1=  4.0%  pass@2=  8.0%  70.2s/case
+qwen3.6:35b-a3b-coding     pass@1= 44.0%  pass@2= 60.0%  129.3s/case

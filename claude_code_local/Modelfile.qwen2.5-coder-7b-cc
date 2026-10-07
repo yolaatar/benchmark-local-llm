@@ -1,0 +1,4 @@
+# Claude Code variant of qwen2.5-coder:7b: same weights, fixed context at its native max (32k).
+# Claude Code talks to Ollama through the Anthropic API, which cannot pass num_ctx per request.
+FROM qwen2.5-coder:7b
+PARAMETER num_ctx 32768

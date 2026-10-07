@@ -1,0 +1,32 @@
+# No upstream reference: consolidation of the large-image handling that needed 3 fix PRs (#974, #988, #1007).
+status: ready
+title: "Centralize large-image handling in ads_utils"
+category: refactor
+mode: code
+repo: C:/Users/Youssef/Documents/Cours/ADS/axondeepseg_tem
+base_ref: cba1c422dc30e7f88f9db70c56663093b7086a1c
+files:
+  - AxonDeepSeg/ads_utils.py
+  - AxonDeepSeg/apply_model.py
+  - AxonDeepSeg/segment.py
+  - AxonDeepSeg/morphometrics/count_axons.py
+  - AxonDeepSeg/morphometrics/filter_morphometrics.py
+read_only: []
+test_cmd: null
+setup_cmds: []
+map_tokens: null
+prompt: |
+  The "allow large images" logic is duplicated across the codebase and has needed several bug fixes
+  because call sites drifted apart. Refactor it, without changing behavior:
+
+  1. In AxonDeepSeg/ads_utils.py, add a context manager (e.g. `large_image_limit(allow_large_images)`)
+     that temporarily raises PIL's `Image.MAX_IMAGE_PIXELS` to `_LARGE_IMAGE_PIXEL_LIMIT` when
+     `allow_large_images` is True and always restores the previous value on exit, even on error.
+     Use it everywhere the limit is currently saved/raised/restored by hand (`imread`, `get_imshape`),
+     and in `apply_model.axon_segmentation`, which currently raises the limit and never restores it
+     (keep its ADS_ALLOW_LARGE_IMAGES environment variable handling as is).
+  2. In ads_utils.py, add a helper `add_allow_large_images_argument(parser)` that registers the
+     `--allow-large-images` CLI flag, and use it in segment.py, morphometrics/count_axons.py and
+     morphometrics/filter_morphometrics.py instead of their three copies of the argparse block.
+
+  Public function signatures and CLI behavior must stay the same.

@@ -1,0 +1,17 @@
+{
+  "model": "qwen3.6:35b-a3b-coding",
+  "num_ctx": 16384,
+  "gpu_total_mib": 16311,
+  "gpu_baseline_mib": 1393,
+  "gpu_peak_mib": 15785,
+  "gpu_used_by_model_mib": 14392,
+  "ollama_size_gb": 22.52,
+  "ollama_size_vram_gb": 13.33,
+  "gpu_fraction": 0.592,
+  "load_s": 56.9,
+  "prompt_tok_s": 7.4,
+  "gen_tokens": 1024,
+  "gen_tok_s": 89.0,
+  "wall_s": 75.6,
+  "measured_at": "2026-09-18 12:24:37"
+}

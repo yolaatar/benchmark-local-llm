@@ -1,0 +1,35 @@
+
+=== task_01_add_feature x qwen2.5-coder:7b
+   549s, 4 LLM calls, 0 files changed -> results\custom_task_01_add_feature_qwen2.5-coder-7b.json
+
+=== task_02_write_test x qwen2.5-coder:7b
+   34s, 1 LLM calls, 1 files changed -> results\custom_task_02_write_test_qwen2.5-coder-7b.json
+
+=== task_03_explain_module x qwen2.5-coder:7b
+   18s, 1 LLM calls, 0 files changed -> results\custom_task_03_explain_module_qwen2.5-coder-7b.json
+
+=== task_04_find_bug x qwen2.5-coder:7b
+   10s, 1 LLM calls, 1 files changed -> results\custom_task_04_find_bug_qwen2.5-coder-7b.json
+
+=== task_05_refactor x qwen2.5-coder:7b
+   297s, 4 LLM calls, 0 files changed -> results\custom_task_05_refactor_qwen2.5-coder-7b.json
+
+=== task_01_add_feature x qwen2.5-coder:14b
+   1800s, 2 LLM calls, 0 files changed, TIMEOUT -> results\custom_task_01_add_feature_qwen2.5-coder-14b.json
+
+=== task_02_write_test x qwen2.5-coder:14b
+   95s, 1 LLM calls, 1 files changed -> results\custom_task_02_write_test_qwen2.5-coder-14b.json
+
+=== task_03_explain_module x qwen2.5-coder:14b
+   60s, 1 LLM calls, 0 files changed -> results\custom_task_03_explain_module_qwen2.5-coder-14b.json
+
+=== task_04_find_bug x qwen2.5-coder:14b
+   23s, 1 LLM calls, 1 files changed -> results\custom_task_04_find_bug_qwen2.5-coder-14b.json
+
+=== task_05_refactor x qwen2.5-coder:14b
+   382s, 2 LLM calls, 0 files changed -> results\custom_task_05_refactor_qwen2.5-coder-14b.json
+
+=== task_01_add_feature x qwen3.6:35b-a3b-coding
+   167s, 1 LLM calls, 0 files changed -> results\custom_task_01_add_feature_qwen3.6-35b-a3b-coding.json
+
+=== task_02_write_test x qwen3.6:35b-a3b-coding

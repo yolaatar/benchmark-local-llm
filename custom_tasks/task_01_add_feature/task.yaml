@@ -1,0 +1,27 @@
+# Reference solution: PR #1007 (commits 1d8809e + 964b6a9), issues #990 / #1006.
+status: ready
+title: "Add --allow-large-images to axondeepseg_morphometrics"
+category: write_code
+mode: code
+repo: C:/Users/Youssef/Documents/Cours/ADS/axondeepseg_tem
+base_ref: bb108a4d980ee3a8171d7e796aca3a4a7ec7b7a9          # parent of 1d8809e, before the flag existed in morphometrics
+files:
+  - AxonDeepSeg/morphometrics/launch_morphometrics_computation.py
+  - AxonDeepSeg/postprocessing.py
+  - test/morphometrics/test_launch_morphometrics_computation.py
+  - test/test_postprocessing.py
+read_only: []
+test_cmd: null
+setup_cmds: []
+map_tokens: null
+prompt: |
+  `axondeepseg_morphometrics` crashes with PIL's `DecompressionBombError` on very large microscopy
+  images, even though AxonDeepSeg already has a mechanism for this: `ads_utils.imread()` accepts an
+  `allow_large_images` argument, and the segmentation CLI (`AxonDeepSeg/segment.py`) exposes it as an
+  `--allow-large-images` flag.
+
+  Add the same `--allow-large-images` flag to `axondeepseg_morphometrics`
+  (AxonDeepSeg/morphometrics/launch_morphometrics_computation.py) and make sure every image or mask read
+  during the morphometrics computation honors it, including the colored image with axon index numbers
+  generated in AxonDeepSeg/postprocessing.py. Keep the default behavior unchanged when the flag is not
+  passed. Add unit tests covering the new flag in the existing test files.

@@ -1,0 +1,24 @@
+# Ground truth: the code itself + PR #1005 description (Armand Collin).
+status: ready
+title: "Explain the morphometrics filtering + axon counting pipeline"
+category: analyze_code
+mode: ask
+repo: C:/Users/Youssef/Documents/Cours/ADS/axondeepseg_tem
+base_ref: cba1c422dc30e7f88f9db70c56663093b7086a1c
+files:
+  - AxonDeepSeg/morphometrics/filter_morphometrics.py
+  - AxonDeepSeg/morphometrics/count_axons.py
+  - AxonDeepSeg/morphometrics/filter.yaml
+read_only: []
+test_cmd: null
+setup_cmds: []
+map_tokens: null
+prompt: |
+  I'm new to this codebase. Explain how the morphometrics filtering and axon counting pipeline works
+  (`axondeepseg_filter`, implemented in AxonDeepSeg/morphometrics/filter_morphometrics.py with its
+  config filter.yaml, and `axondeepseg_count` in AxonDeepSeg/morphometrics/count_axons.py).
+
+  Cover: what the config file controls and how rules are applied, how the segmentation masks are
+  updated to match the filtered morphometrics, how the two counting modes work and which files they
+  read, and how the two tools are meant to be chained. Finish with the pitfalls or surprising
+  behaviors a user or developer should know about. Be precise and only state what the code does.

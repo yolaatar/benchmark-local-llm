@@ -1,0 +1,5 @@
+
+=== task_01_add_feature x claude-sonnet
+   398s, 48 turns, $0.70, 6 files changed -> results\custom_task_01_add_feature_claude-sonnet.json
+
+=== task_02_write_test x claude-sonnet
