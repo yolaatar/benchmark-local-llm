@@ -1,146 +1,204 @@
-# Lab meeting version of the local models talk
+# Lab meeting plan: local coding models on the lab's GPUs
 
-Target: 11 slides plus 1 backup, about 10 to 12 min. Old deck: 19 slides (`~/Downloads/20260921_localmodels.pdf`).
-Roughly a third recap of round 1 (PC), two thirds the new part (tassan).
+Old deck: `~/Downloads/20260921_localmodels.pdf` (19 slides). The PC results are dropped; the story is now "can the lab run its own coding assistant on tassan, for everyone".
 
-Figures: `python make_cluster_figures.py` writes `slides/cluster_setup.png`, and once results are fetched into `results/` it also writes `slides/concurrency.png` and prints the tables below as markdown.
+Target: ~15 slides, ~12 min. Slides marked **[quick]** are 20 to 30 s each. Slides marked **[if ready]** depend on the tassan runs (another session); each has a fallback.
 
-## What happens to the old slides
+| # | Slide | Source | Time |
+|---|---|---|---|
+| 1 | Title | old 1, retitled | 10 s |
+| 2 | Where we left off | old 2 | 30 s |
+| 3 | Poll: which AI | old 3 | 20 s |
+| 4 | Poll: what for | old 4 | 20 s |
+| 5 | Open source is closing the gap | old 6 | 20 s |
+| 6 | SWE-rebench | old 7 | 20 s |
+| 7 | Benchmarks contradict each other | old 8 | 20 s |
+| 8 | Our own tasks | old 12, reworked | 45 s |
+| 9 | The lab's GPUs | old 17/18, merged | 45 s |
+| 10 | The stack on the cluster | new, replaces old 9 | 1 min |
+| 11 | The harness: OpenCode vs Claude Code | new, replaces old 10 | 1 min |
+| 12 | Models compared | old 11, reworked | 45 s |
+| 13 | Results on our tasks | new, replaces old 13/14 | 1.5 min |
+| 14 | Multi-user: one server for the whole lab | new | 1 min |
+| 15 | Scalability | new | 1 min |
+| 16 | Takeaways and what we need to decide | new, replaces old 15/16/19 | 1 min |
 
-| Old slide | Fate |
+Removed: old 5 ("The ?"), 9 (PC stack), 10 (how aider works), 13 to 16 (PC results), 19 (how can we make it work, now answered by 10, 14, 15).
+
+---
+
+## 1. Title
+
+Retitle to put the lab angle up front, e.g. **"Can the lab run its own coding assistant?"**, with the new date.
+
+Talking points:
+- Follow-up of the talk from a few weeks ago, short version.
+
+## 2. Where we left off [quick]
+
+Keep as is.
+
+Talking points:
+- Thomas' survey: almost everyone uses AI, mostly for coding.
+- Two options on the table: a shared subscription, or our own models. Privacy is the open question.
+
+## 3. Poll: which AI [quick]
+
+Keep. Point at Claude 80 %, ChatGPT and Gemini ~48 %.
+
+## 4. Poll: what for [quick]
+
+Keep. Point at code writing (88 %) and code analysis (84 %): this is why the talk focuses on coding.
+
+## 5. Open source is closing the gap [quick]
+
+Keep the Aider leaderboard table.
+
+Talking points:
+- Open models are now within reach of the closed ones on some benchmarks.
+- One line: this is what made the question worth testing.
+
+## 6. SWE-rebench [quick]
+
+Keep the chart.
+
+Talking points:
+- It compares models *and* agents. The agent around the model matters, which is the point of slide 11.
+
+## 7. Benchmarks contradict each other [quick]
+
+Keep.
+
+Talking points:
+- Different task sizes, different harnesses, so the rankings don't agree.
+- 90 % on a benchmark doesn't mean "it'll solve my problems". So I tested on our own tasks.
+
+## 8. Our own tasks
+
+Rework old slide 12: keep the 5 custom tasks, drop or shrink the Exercism line.
+
+Talking points:
+- These are real AxonDeepSeg tasks, things I actually do every week:
+  - add a CLI flag
+  - write a pytest module
+  - explain the morphometrics pipeline to a newcomer
+  - find a real bug from a bug report
+  - a refactor across 5 files
+- Each one starts from a pinned commit, the agent gets the prompt once, and I review the diff by hand.
+- They range from easy (explain) to hard (multi-file refactor), on purpose.
+- Last time on my PC, small models couldn't do most of them. Hardware was the limit (16 GB of VRAM). Say it in one sentence, without showing the PC results.
+
+## 9. The lab's GPUs
+
+Merge old 17 and 18 (the GPU cluster page plus the "in theory" bullets).
+
+Talking points:
+- Four stations; tassan is the one that matters: 2 x RTX PRO 6000, 96 GB each (2025).
+- One tassan card holds an 80B coding model entirely, and the other card stays free for training.
+- Already measured: Qwen3-Coder-Next 80B on one card at 54 tok/s, 64k context, 100 % on the GPU.
+- Fallback stations: romane (4 x A6000), and rosenberg only with llama.cpp, slow.
+
+## 10. The stack on the cluster [if ready]
+
+Figure: `slides/cluster_setup.png`. Regenerate with `python make_cluster_figures.py` if the setup changes, e.g. which harness or model.
+
+Talking points:
+- **vLLM** serves the model on card 0. It speaks both the OpenAI and the Anthropic API, so any agent can plug in.
+- Each person keeps their agent on their laptop, with an SSH tunnel using their own tassan login.
+- The agent works on your local files and runs your tests. Only the prompts go to tassan.
+- Privacy: everything stays inside Poly's network. The server listens on localhost only, so nothing is exposed.
+- Footprint: no root, one folder in my home directory, removable in one command.
+- Variant: run the agent on tassan itself, so it sees the cluster files and nothing crosses the network.
+
+Fallback if vLLM isn't up: same diagram with Ollama (already working on tassan). Say vLLM is the next step because of slide 14.
+
+## 11. The harness: OpenCode vs Claude Code
+
+Replaces "how aider works". I'm assuming "open router" meant **OpenCode** (the open-source agent). OpenRouter is a cloud API that resells models, which is the opposite of keeping things local; if that's actually what you meant, this slide changes.
+
+Talking points:
+- The harness is the program around the model: it gives the model tools (read file, edit, run a command, search), applies the edits and loops until it's done.
+- Last time's harness, Aider, parsed edits out of plain text. Many failures came from that, not from the model.
+- **OpenCode**: open source (MIT), the most used open agent. It works with any model, and it does what Claude Code does: explores the repo, edits several files, runs the tests, plans.
+- How close to Claude Code: same kind of loop and the same tools. Claude Code is more polished (sub-agents, hooks, very good defaults), and some local models don't use all its features (Qwen3-Coder-Next ignores the sub-agent tool).
+- Claude Code itself can also point at our server, with no Anthropic account needed for that.
+- With the model fixed, comparing the two harnesses on our tasks isolates the effect of the harness (slide 13).
+
+Figure idea: a small table of the two side by side (license, works with our server, tools, sub-agents, IDE/desktop).
+
+## 12. Models compared [depends on what gets tested]
+
+Talking points, depending on the models that end up tested:
+- **Qwen3-Coder-Next 80B** (default): a coding model built for agents, answers fast (no thinking step), 256k context, 4-bit NVFP4 at ~45 GB.
+- **Qwen3.6 35B-A3B** (option): smaller and leaves most of the card free, but it thinks before answering, so it's slower per answer. Same family as last time's best model.
+- **Claude Sonnet** as the reference ceiling.
+- One line on quantization: 4-bit float with fine scaling, about a quarter of the original size, small loss, native on Blackwell. FP8 exists if precision matters.
+
+Fallback: if only the 80B gets tested, cut this slide and give the model its own line on slide 10 or 13.
+
+## 13. Results on our tasks [if ready]
+
+The main results slide. `make_cluster_figures.py` prints the raw table (time, turns, files changed); success comes from reviewing the diffs.
+
+Suggested table: rows = the 5 tasks, columns = 80B + OpenCode, 80B + Claude Code, Claude Sonnet (reference). Last row: score and total time.
+
+Talking points:
+- The headline: how many of the 5 tasks the cluster model solves, and how that compares to Claude.
+- Harness effect: same model, OpenCode vs Claude Code, does it change anything?
+- What still fails, e.g. silent regressions on the refactor. Be honest about it.
+- Time per task, vs Claude.
+
+Fallback if not run in time: show that it works end to end (a screenshot of an agent editing a repo through the tunnel and the test passing, from `smoke-test.ps1`), and present the task comparison as the next step.
+
+## 14. Multi-user: one server for the whole lab
+
+Talking points:
+- Key message: **multi-user is a server problem, not a harness problem.** Everyone runs their own agent, all agents send requests to one server, and the server decides how they share the GPU.
+- Ollama (default): one request at a time, so person B waits until person A's answer is done. Agents make dozens of calls per task, so two people working at once will feel it.
+- vLLM: built for this. Requests join the running batch at every step (continuous batching), memory is allocated as needed rather than reserved per user, and long system prompts that agents resend on every call get reused.
+- Access: your tassan login (SSH) plus a shared lab key.
+- What a lab member needs to start: VPN, tassan login, the client folder, about 5 minutes (`USER_GUIDE.md`).
+
+Figure idea: two small timelines, "Ollama: users served one after another" vs "vLLM: users served together".
+
+## 15. Scalability [if ready]
+
+Figure: `slides/concurrency.png` (generated from the tassan load test).
+
+Talking points:
+- The two numbers that matter:
+  - **wait before the first word** at 4 and 8 simultaneous users (what people feel)
+  - **total tokens/s** (how much work one card does)
+- Read the curve: up to N users it stays comfortable, beyond that it degrades. Give the actual N.
+- What limits it: the memory left for users' context (~40 GB with the 4-bit 80B). A smaller model or shorter context means more users.
+- Realistic load: lab members don't all send requests at the same second. The random-arrival run (8 users) is closer to real life.
+- If we outgrow one card: the second tassan card (taking it from training), romane as a second server, or a smaller model.
+- Later: per-user keys and usage tracking (a LiteLLM proxy in front), and a web chat UI for non-coders (Open WebUI).
+
+Fallback if not measured: show the setup, say what will be measured (these two numbers at 1 to 16 users) and give the external reference point (Jarvislabs: a 35B on one RTX PRO 6000 stays ~0.5 s for 1 user and ~1.4 s at 64 users).
+
+## 16. Takeaways and what we need to decide
+
+Talking points:
+- The hardware question is solved: one tassan card runs an 80B coding model.
+- `<result line from 13>` / `<scaling line from 15>`
+- Privacy: code and data never leave Poly's network, at no per-seat cost.
+- Same rule as before: work on a branch and read the diff.
+- To decide as a lab:
+  - who owns the server
+  - does it run permanently on card 0 or on demand
+  - which model
+  - a shared key or per-user keys
+- Who wants to try it?
+
+---
+
+## What to get from the session running tassan, and which slide needs it
+
+| Needed | For slide |
 |---|---|
-| 1 Title | keep, retitle |
-| 2 Where we left off | merge with 3/4 into one "why" slide |
-| 3, 4 Poll results | keep one chart (the "what do you use" one), small |
-| 5 The ? | cut (the title already asks it) |
-| 6, 7 Open source closing the gap, swe rebench | cut |
-| 8 Benchmarks contradict each other | cut, one line survives on slide 2 |
-| 9 Stack under test | cut (replaced by the new setup diagram) |
-| 10 How aider works | cut, one bullet survives on slide 4 |
-| 11 Models compared | cut, model names go in the table header |
-| 12 Tasks tested | cut, task names are the table rows |
-| 13 Results, polyglot | fold into slide 3 as one line |
-| 14 Results, ADS tasks | **keep**, it's the round 1 slide |
-| 15, 16 Why it's failing, is it viable | merge into slide 4 |
-| 17, 18 But we have GPU clusters | merge into slide 5 |
-| 19 How can we make it work | replaced by slides 6 to 9 |
-
----
-
-## Slide 1: title
-
-**Can the lab run its own coding assistant?**
-Local models, round 2: from my PC to tassan
-Youssef Laatar, lab meeting, <date>
-
-## Slide 2: why we're looking at this
-
-- Thomas' survey: almost everyone uses AI, mostly coding (22/25) and writing
-- Open question: a shared subscription, or our own models, for privacy and sensitive data?
-- Public benchmarks disagree with each other, so I tested on our own tasks
-- (small) the "what do you use AI for" poll chart
-
-Say: last time I showed this on my PC, today the follow-up on the lab's GPUs.
-
-## Slide 3: round 1, a 16 GB PC vs Claude
-
-Keep old slide 14 (ADS tasks table) as is. Add one line above it:
-
-> 25 standard exercises: best local model 60 %, Claude Sonnet 5 96 %.
-
-## Slide 4: round 1 takeaways
-
-- Small models mostly failed on **tooling**, not code: malformed edits, empty files, truncated answers (Aider parses edits out of plain text)
-- The 35B was usable but made **silent regressions** on the refactor
-- Good for: explaining code, finding a bug, sensitive data. Not for: features, multi-file refactors
-- Bottleneck: 16 GB of VRAM. The 35B spilled into system RAM, context capped
-
-Transition: "but we have GPU clusters".
-
-## Slide 5: the lab's GPUs
-
-| Station | GPUs | For a coding model |
-|---|---|---|
-| bireli | 2 x GTX TITAN X (2014) | no |
-| rosenberg | 8 x P100 16 GB (2016) | possible, half the machine, slow |
-| romane | 4 x RTX A6000 48 GB (2020) | good fallback |
-| **tassan** | **2 x RTX PRO 6000 96 GB (2025)** | **one card holds an 80B model** |
-
-Measured on tassan (Ollama, Qwen3-Coder-Next 80B, Q4):
-
-| | 35B on my PC | 80B on tassan |
-|---|---|---|
-| Placement | 59 % GPU, rest in RAM | 100 % on one card |
-| Speed | 68 to 89 tok/s | 54 tok/s |
-| Context | 32k, fought for it | 64k, room left |
-| Other card | n/a | untouched |
-
-## Slide 6: the setup
-
-Image: `slides/cluster_setup.png`
-
-- vLLM serves the model on card 0, card 1 stays free for training
-- Each person: SSH tunnel with their own tassan login, then OpenCode (open source) or Claude Code pointed at tassan
-- No root, nothing exposed on the network, everything in one folder, `rm -rf` to remove
-
-## Slide 7: it works (demo)
-
-Screenshot or 30 s screen recording: OpenCode (or Claude Code) on a laptop, through the tunnel, editing a scratch repo and the test passing. `smoke-test.ps1` does exactly this.
-
-Caption: `<agent>` + Qwen3-Coder-Next 80B on tassan, `<N>` tool calls, `<time>` s, test passes.
-
-Fallback if no screenshot: the `check-tassan.ps1` / `smoke-test.ps1` output ("Tool call OK", "median PASS").
-
-## Slide 8: sharing one GPU
-
-Title: **Several people at once: the server matters, not the agent**
-
-Image: `slides/concurrency.png` (real data only, the current one is from a fake run and was deleted)
-
-One line under it, filled from the printed table:
-> At 8 simultaneous users: vLLM `<x>` s before the first word, Ollama (default) `<y>` s. vLLM does `<k>`x more total work on the same card.
-
-Say: Ollama answers people one by one by default; vLLM batches everyone together.
-
-## Slide 9: round 3, same 5 ADS tasks on tassan
-
-| Task | 35B, PC, Aider | 80B, tassan, OpenCode | 80B, tassan, Claude Code | Sonnet 5 |
-|---|---|---|---|---|
-| Add a CLI feature | passed | `<>` | `<>` | passed |
-| Write a test suite | 12 of 15 passed | `<>` | `<>` | passed |
-| Explain a module | passed | `<>` | `<>` | passed |
-| Find a real bug | passed | `<>` | `<>` | passed |
-| Refactor across 5 files | 2 silent regressions | `<>` | `<>` | passed |
-| Score, total time | 4/5, 22 min | `<>` | `<>` | 5/5, 11.8 min |
-
-`make_cluster_figures.py` prints the raw run table (time, turns, files changed); success comes from reviewing the diffs by hand (`review.success`).
-
-If round 3 isn't done: drop this slide and say it's the next step, slide 7 already shows it works.
-
-## Slide 10: takeaways
-
-1. Hardware is solved: one tassan card runs an 80B coding model fully in VRAM, the other card stays free
-2. With vLLM, several people can share it: `<one number from slide 8>`
-3. Real agents (OpenCode, Claude Code) instead of Aider: `<one line from slide 9>`
-4. Privacy: code and data never leave Poly's network, no per-seat cost
-5. Same rule as before: read the diff, work on a branch
-
-## Slide 11: what we need to decide as a lab
-
-- Who owns the server, and does it run permanently on card 0 or on demand?
-- Which model: the 80B coder, or a smaller 35B that leaves most of the card free?
-- One shared key, or per-user keys and usage logs (later)?
-- Want to try it? Ask me for the client folder, it's a 1-page guide
-
-## Backup: how to use it
-
-From `lab_server/USER_GUIDE.md`: VPN, `tassan-tunnel.ps1`, `check-tassan.ps1`, then `opencode-tassan.ps1` or `claude-tassan.ps1` in your repo.
-
----
-
-## What to ask the session running tassan to bring back
-
-- `results/conc_vllm.json`, `conc_ollama_p1.json`, `conc_ollama_p4.json` (`deploy-tassan.ps1 -Fetch`)
-- `results/custom_*_opencode-tassan-vllm.json` and `custom_*_claude-tassan-vllm.json`, with `review.success` filled
-- A screenshot of an agent session on tassan (slide 7), and the `status.sh` output with `nvidia-smi` memory
-- vLLM start-up time and which checkpoint actually loaded (NVFP4 or the FP8 fallback), since slide 5/6 say 80B
+| vLLM up, which checkpoint loaded (NVFP4 or FP8 fallback), start-up time | 10, 12 |
+| Screenshot of OpenCode / Claude Code editing a repo through the tunnel | 10 or 13 fallback |
+| `custom_*_opencode-tassan-vllm.json`, `custom_*_claude-tassan-vllm.json`, diffs reviewed | 13 |
+| `conc_vllm.json`, `conc_vllm_poisson.json`, `conc_ollama_p1.json`, `conc_ollama_p4.json` | 15 |
+| CPU and RAM use during the load test (`top`), `nvidia-smi` memory | 15, for questions |
