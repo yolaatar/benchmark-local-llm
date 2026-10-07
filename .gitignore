@@ -5,3 +5,4 @@ tmp.benchmarks/
 work/
 work_benchmark/
 *.key
+.venv.*/
