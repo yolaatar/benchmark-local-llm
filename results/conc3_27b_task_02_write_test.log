@@ -1,0 +1,6 @@
+
+=== task_02_write_test x claude-conc3-27b
+   875s, 17 turns, 1 files changed -> results/custom_task_02_write_test_claude-conc3-27b.json
+
+=== Summary
+task_02_write_test            875s  17 turns  1 files

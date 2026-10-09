@@ -1,0 +1,1268 @@
+1791569950  1791569950 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.004393673110720586
+1791569952  1791569953 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:num_requests_waiting{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.019332161687170446
+1791569955  1791569955 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:num_requests_waiting{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.055360281195079075
+1791569957  1791569957 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 4.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.05799648506151145
+1791569959  1791569960 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 4.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.05799648506151145
+1791569962  1791569962 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 4.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.05799648506151145
+1791569964  1791569964 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 4.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.05184534270650265
+1791569967  1791569967 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 5.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.062390158172232035
+1791569969  1791569970 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 5.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.062390158172232035
+1791569972  1791569972 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 4.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.05623901581722324
+1791569974  1791569974 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 6.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.0852372583479789
+1791569977  1791569977 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 6.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.07996485061511427
+1791569979  1791569979 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 6.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.08084358523725832
+1791569981  1791569981 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 6.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.10105448154657293
+1791569983  1791569984 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 6.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.10105448154657293
+1791569986  1791569986 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 5.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.0913884007029877
+1791569988  1791569988 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 4.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.08787346221441128
+1791569990  1791569990 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 4.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.09050966608084354
+1791569992  1791569993 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 4.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.0834797891036907
+1791569995  1791569995 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 4.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.09314586994727592
+1791569997  1791569997 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 4.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.10456942003514935
+1791569999  1791569999 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 4.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.10456942003514935
+1791570001  1791570001 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.09490333919156413
+1791570003  1791570004 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 4.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.11511423550087874
+1791570006  1791570006 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 4.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1159929701230229
+1791570008  1791570008 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.10456942003514935
+1791570010  1791570010 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 4.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1300527240773286
+1791570012  1791570013 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 4.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.14059753954305798
+1791570015  1791570015 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 4.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.13444639718804918
+1791570017  1791570017 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 4.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.13444639718804918
+1791570019  1791570019 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.11423550087873457
+1791570021  1791570021 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 4.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1423550087873462
+1791570024  1791570024 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 4.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.15114235500878737
+1791570026  1791570026 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 4.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.14059753954305798
+1791570028  1791570028 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 4.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1608084358523726
+1791570030  1791570030 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 4.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.16959578207381376
+1791570032  1791570033 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 4.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.16783831282952544
+1791570035  1791570035 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 4.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.15553602811950795
+1791570037  1791570037 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 5.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.17574692442882245
+1791570039  1791570039 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 4.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.16783831282952544
+1791570041  1791570041 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 4.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1687170474516696
+1791570044  1791570044 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 4.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.156414762741652
+1791570046  1791570046 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 4.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1748681898066784
+1791570048  1791570048 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.12038664323374337
+1791570050  1791570050 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 4.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.15553602811950795
+1791570053  1791570053 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 4.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.164323374340949
+1791570055  1791570055 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 4.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.17223198594024602
+1791570057  1791570057 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 5.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1766256590509666
+1791570059  1791570059 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 5.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1766256590509666
+1791570061  1791570061 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 4.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1441124780316344
+1791570064  1791570064 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 5.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.17311072056239019
+1791570066  1791570066 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 5.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.18189806678383125
+1791570068  1791570068 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 5.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.15114235500878737
+1791570070  1791570070 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 5.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1625659050966608
+1791570073  1791570073 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 5.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.18014059753954303
+1791570075  1791570075 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 5.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1889279437609842
+1791570077  1791570077 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 5.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.19771528998242527
+1791570079  1791570079 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 5.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.20650263620386644
+1791570081  1791570082 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 5.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.21089630931458703
+1791570084  1791570084 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 5.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.21177504393673108
+1791570086  1791570086 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 5.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.18980667838312826
+1791570088  1791570088 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 5.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.21001757469244287
+1791570090  1791570091 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 5.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.21177504393673108
+1791570093  1791570093 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 4.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.12741652021089633
+1791570095  1791570095 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 5.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1625659050966608
+1791570097  1791570097 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 5.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.17135325131810197
+1791570099  1791570099 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 5.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1889279437609842
+1791570101  1791570102 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 5.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.19771528998242527
+1791570104  1791570104 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 5.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.20650263620386644
+1791570106  1791570106 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 5.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.2152899824253075
+1791570108  1791570108 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 4.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.17574692442882245
+1791570110  1791570110 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 5.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.19244288224956063
+1791570113  1791570113 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 5.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.20386643233743407
+1791570115  1791570115 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 5.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.2196836555360281
+1791570117  1791570117 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 4.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.18189806678383125
+1791570119  1791570119 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 5.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.21089630931458703
+1791570121  1791570122 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 5.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.22056239015817225
+1791570124  1791570124 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 5.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.21704745166959583
+1791570126  1791570126 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 5.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1933216168717048
+1791570128  1791570128 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 5.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.20474516695957823
+1791570130  1791570130 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 5.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.2214411247803163
+1791570133  1791570133 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 5.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.21704745166959583
+1791570135  1791570135 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 5.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.21792618629173988
+1791570137  1791570137 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 5.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.21792618629173988
+1791570139  1791570139 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 5.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.19771528998242527
+1791570142  1791570142 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 5.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.2152899824253075
+1791570144  1791570144 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 5.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.22407732864674867
+1791570146  1791570146 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 5.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.23286467486818985
+1791570148  1791570148 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 5.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.2416520210896309
+1791570151  1791570151 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 5.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.24692442882249566
+1791570153  1791570153 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 5.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.2478031634446397
+1791570155  1791570155 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 5.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.2478031634446397
+1791570157  1791570157 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 5.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.2478031634446397
+1791570159  1791570159 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 5.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.2478031634446397
+1791570162  1791570162 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 5.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.24868189806678387
+1791570164  1791570164 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 5.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.24868189806678387
+1791570166  1791570166 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 5.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.23110720562390163
+1791570168  1791570168 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 5.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.24253075571177507
+1791570170  1791570171 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 5.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.24956063268892792
+1791570173  1791570173 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 5.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.24956063268892792
+1791570175  1791570175 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 5.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.2504393673110721
+1791570177  1791570177 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 5.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.2504393673110721
+1791570179  1791570179 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 5.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.24868189806678387
+1791570181  1791570181 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 5.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.24956063268892792
+1791570184  1791570184 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 5.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.2504393673110721
+1791570186  1791570186 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 5.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.2504393673110721
+1791570188  1791570188 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 4.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.24692442882249566
+1791570190  1791570190 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 4.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.2478031634446397
+1791570192  1791570193 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.17750439367311077
+1791570195  1791570195 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 4.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.20562390158172228
+1791570197  1791570197 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 4.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.21441124780316345
+1791570199  1791570199 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 4.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.2355008787346221
+1791570201  1791570201 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 4.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.24428822495606328
+1791570204  1791570204 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 4.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.2504393673110721
+1791570206  1791570206 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 4.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.24868189806678387
+1791570208  1791570208 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 4.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.24868189806678387
+1791570210  1791570210 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 4.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.24868189806678387
+1791570213  1791570213 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 4.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.24868189806678387
+1791570215  1791570215 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 4.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.24868189806678387
+1791570217  1791570217 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 4.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.24868189806678387
+1791570219  1791570219 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.17926186291739898
+1791570221  1791570221 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 4.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.2073813708260105
+1791570224  1791570224 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 4.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.21616871704745166
+1791570226  1791570226 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 5.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.23725834797891032
+1791570228  1791570228 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 5.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.2460456942003515
+1791570230  1791570231 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 5.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.25483304042179267
+1791570233  1791570233 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 5.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.25307557117750434
+1791570235  1791570235 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 5.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.25483304042179267
+1791570237  1791570237 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 4.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.25131810193321613
+1791570239  1791570240 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.09050966608084354
+1791570242  1791570242 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.11862917398945516
+1791570244  1791570244 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.12741652021089633
+1791570246  1791570246 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1362038664323374
+1791570248  1791570249 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.15377855887521963
+1791570251  1791570251 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1625659050966608
+1791570253  1791570253 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.16959578207381376
+1791570255  1791570255 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.164323374340949
+1791570257  1791570257 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.16520210896309317
+1791570260  1791570260 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.0711775043936731
+1791570262  1791570262 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:num_requests_waiting{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.0913884007029877
+1791570264  1791570264 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.11950790861159932
+1791570266  1791570266 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.12565905096660812
+1791570268  1791570269 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.13181019332161692
+1791570271  1791570271 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.14938488576449915
+1791570273  1791570273 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.15817223198594021
+1791570275  1791570275 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1669595782073814
+1791570278  1791570278 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1669595782073814
+1791570280  1791570280 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1669595782073814
+1791570282  1791570282 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1669595782073814
+1791570284  1791570284 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.16783831282952544
+1791570287  1791570287 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.16783831282952544
+1791570289  1791570289 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.14762741652021094
+1791570291  1791570291 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.16783831282952544
+1791570293  1791570293 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.16783831282952544
+1791570295  1791570296 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1687170474516696
+1791570298  1791570298 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1687170474516696
+1791570300  1791570300 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.054481546572935025
+1791570302  1791570302 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:num_requests_waiting{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.0834797891036907
+1791570304  1791570305 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:num_requests_waiting{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.09226713532513175
+1791570307  1791570307 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.12478031634446396
+1791570309  1791570309 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.13093145869947276
+1791570311  1791570311 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.14586994727592262
+1791570313  1791570314 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1546572934973638
+1791570316  1791570316 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.16344463971880496
+1791570318  1791570318 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.17223198594024602
+1791570320  1791570320 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.16959578207381376
+1791570322  1791570322 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.16959578207381376
+1791570325  1791570325 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.148506151142355
+1791570327  1791570327 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1687170474516696
+1791570329  1791570329 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1704745166959578
+1791570331  1791570331 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1704745166959578
+1791570334  1791570334 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.09402460456942008
+1791570336  1791570336 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.11423550087873457
+1791570338  1791570338 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.13444639718804918
+1791570340  1791570341 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.14323374340949035
+1791570343  1791570343 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.15202108963093142
+1791570345  1791570345 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1608084358523726
+1791570347  1791570347 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.17574692442882245
+1791570349  1791570349 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.17223198594024602
+1791570352  1791570352 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.17223198594024602
+1791570354  1791570354 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.17223198594024602
+1791570356  1791570356 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.11511423550087874
+1791570358  1791570358 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.12653778558875217
+1791570361  1791570361 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1441124780316344
+1791570363  1791570363 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.156414762741652
+1791570365  1791570365 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.16520210896309317
+1791570367  1791570367 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.17135325131810197
+1791570370  1791570370 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.17311072056239019
+1791570372  1791570372 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.17311072056239019
+1791570374  1791570374 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.17311072056239019
+1791570376  1791570376 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.17311072056239019
+1791570378  1791570379 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.17311072056239019
+1791570381  1791570381 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.17398945518453424
+1791570383  1791570383 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.17398945518453424
+1791570385  1791570385 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.17398945518453424
+1791570387  1791570388 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1748681898066784
+1791570390  1791570390 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.11687170474516695
+1791570392  1791570392 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.12829525483304038
+1791570394  1791570394 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.13708260105448156
+1791570396  1791570396 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1546572934973638
+1791570399  1791570399 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.16344463971880496
+1791570401  1791570401 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.17223198594024602
+1791570403  1791570403 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1748681898066784
+1791570405  1791570406 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1748681898066784
+1791570408  1791570408 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.14586994727592262
+1791570410  1791570410 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.09050966608084354
+1791570412  1791570412 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.09929701230228472
+1791570414  1791570414 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:num_requests_waiting{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.11687170474516695
+1791570417  1791570417 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1379613356766256
+1791570419  1791570419 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.15289982425307558
+1791570421  1791570421 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.16168717047451675
+1791570423  1791570423 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1704745166959578
+1791570426  1791570426 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.17926186291739898
+1791570428  1791570428 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.18804920913884005
+1791570430  1791570430 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.2012302284710018
+1791570432  1791570432 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.19683655536028122
+1791570434  1791570435 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.05623901581722324
+1791570437  1791570437 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.08787346221441128
+1791570439  1791570439 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.09666080843585234
+1791570441  1791570441 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.10544815465729351
+1791570443  1791570443 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:num_requests_waiting{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.12302284710017575
+1791570446  1791570446 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:num_requests_waiting{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.13181019332161692
+1791570448  1791570448 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:num_requests_waiting{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.14059753954305798
+1791570450  1791570450 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.15729349736379616
+1791570452  1791570452 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1687170474516696
+1791570454  1791570455 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1810193321616872
+1791570457  1791570457 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.18980667838312826
+1791570459  1791570459 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.187170474516696
+1791570461  1791570461 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.12214411247803159
+1791570463  1791570463 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.13356766256590513
+1791570466  1791570466 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1423550087873462
+1791570468  1791570468 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.15992970123022843
+1791570470  1791570470 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1687170474516696
+1791570472  1791570472 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.17750439367311077
+1791570475  1791570475 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.18629173989455183
+1791570477  1791570477 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.187170474516696
+1791570479  1791570479 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.14586994727592262
+1791570481  1791570481 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1748681898066784
+1791570483  1791570484 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.18365553602811946
+1791570486  1791570486 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.18804920913884005
+1791570488  1791570488 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.10281195079086114
+1791570490  1791570490 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.07908611599297011
+1791570492  1791570492 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.09050966608084354
+1791570495  1791570495 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:num_requests_waiting{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.10808435852372589
+1791570497  1791570497 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.12917398945518455
+1791570499  1791570499 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1441124780316344
+1791570501  1791570502 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.15289982425307558
+1791570504  1791570504 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.16168717047451675
+1791570506  1791570506 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1704745166959578
+1791570508  1791570508 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.17926186291739898
+1791570510  1791570510 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.195079086115993
+1791570513  1791570513 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.19068541300527242
+1791570515  1791570515 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.19156414762741647
+1791570517  1791570517 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1036906854130053
+1791570519  1791570519 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.13532513181019334
+1791570522  1791570522 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1441124780316344
+1791570524  1791570524 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.15289982425307558
+1791570526  1791570526 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1704745166959578
+1791570528  1791570528 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.17926186291739898
+1791570530  1791570531 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.18804920913884005
+1791570533  1791570533 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.19595782073813706
+1791570535  1791570535 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.19156414762741647
+1791570537  1791570537 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1036906854130053
+1791570539  1791570539 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.13532513181019334
+1791570542  1791570542 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1441124780316344
+1791570544  1791570544 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.15289982425307558
+1791570546  1791570546 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1704745166959578
+1791570548  1791570549 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.17926186291739898
+1791570551  1791570551 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.18804920913884005
+1791570553  1791570553 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.19595782073813706
+1791570555  1791570555 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.19156414762741647
+1791570557  1791570557 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1036906854130053
+1791570560  1791570560 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.13532513181019334
+1791570562  1791570562 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1441124780316344
+1791570564  1791570564 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.15289982425307558
+1791570566  1791570567 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1704745166959578
+1791570569  1791570569 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.17926186291739898
+1791570571  1791570571 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.18804920913884005
+1791570573  1791570573 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.19683655536028122
+1791570575  1791570575 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1933216168717048
+1791570578  1791570578 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.16783831282952544
+1791570580  1791570580 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.18804920913884005
+1791570582  1791570582 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.19771528998242527
+1791570584  1791570584 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1933216168717048
+1791570586  1791570587 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.19420035149384884
+1791570589  1791570589 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.07996485061511427
+1791570591  1791570591 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.0913884007029877
+1791570593  1791570593 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:num_requests_waiting{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.10896309314586994
+1791570595  1791570595 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.12917398945518455
+1791570598  1791570598 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.14762741652021094
+1791570600  1791570600 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.15377855887521963
+1791570602  1791570602 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1625659050966608
+1791570604  1791570604 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.17135325131810197
+1791570607  1791570607 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.18014059753954303
+1791570609  1791570609 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1889279437609842
+1791570611  1791570611 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.20035149384885764
+1791570613  1791570613 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.19595782073813706
+1791570615  1791570616 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.10544815465729351
+1791570618  1791570618 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.07996485061511427
+1791570620  1791570620 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.0913884007029877
+1791570622  1791570622 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:num_requests_waiting{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.10896309314586994
+1791570624  1791570625 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.12917398945518455
+1791570627  1791570627 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.14674868189806678
+1791570629  1791570629 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.15289982425307558
+1791570631  1791570631 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.16168717047451675
+1791570633  1791570634 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1704745166959578
+1791570636  1791570636 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.17926186291739898
+1791570638  1791570638 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.18804920913884005
+1791570640  1791570640 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.20035149384885764
+1791570643  1791570643 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.19595782073813706
+1791570645  1791570645 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.19595782073813706
+1791570647  1791570647 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.062390158172232035
+1791570649  1791570649 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.0913884007029877
+1791570651  1791570652 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.10017574692442888
+1791570654  1791570654 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.10632688927943756
+1791570656  1791570656 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.10632688927943756
+1791570658  1791570658 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.0588752196836555
+1791570660  1791570660 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.08172231985940248
+1791570662  1791570663 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.10193321616871709
+1791570665  1791570665 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.11072056239015815
+1791570667  1791570667 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.11950790861159932
+1791570669  1791570669 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.14762741652021094
+1791570671  1791570672 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.156414762741652
+1791570674  1791570674 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.17135325131810197
+1791570676  1791570676 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.18014059753954303
+1791570678  1791570678 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1889279437609842
+1791570680  1791570681 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.19771528998242527
+1791570683  1791570683 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.20650263620386644
+1791570685  1791570685 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.2152899824253075
+1791570687  1791570687 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1889279437609842
+1791570689  1791570690 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.20035149384885764
+1791570692  1791570692 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.20913884007029881
+1791570694  1791570694 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.2152899824253075
+1791570696  1791570696 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.15202108963093142
+1791570698  1791570698 
+1791570700  1791570701 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:num_requests_waiting{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.04393673110720564
+1791570703  1791570703 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:num_requests_waiting{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.0527240773286467
+1791570705  1791570705 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:num_requests_waiting{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.07820738137082606
+1791570707  1791570707 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:num_requests_waiting{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.08963093145869949
+1791570710  1791570710 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:num_requests_waiting{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.10193321616871709
+1791570712  1791570712 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:num_requests_waiting{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.11072056239015815
+1791570714  1791570714 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.13093145869947276
+1791570716  1791570716 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.148506151142355
+1791570719  1791570719 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1546572934973638
+1791570721  1791570721 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.16344463971880496
+1791570723  1791570723 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1810193321616872
+1791570725  1791570725 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.18980667838312826
+1791570728  1791570728 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.19859402460456943
+1791570730  1791570730 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.2073813708260105
+1791570732  1791570732 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.20562390158172228
+1791570734  1791570734 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.20650263620386644
+1791570737  1791570737 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.2073813708260105
+1791570739  1791570739 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1625659050966608
+1791570741  1791570741 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.19156414762741647
+1791570743  1791570743 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.20035149384885764
+1791570746  1791570746 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.2073813708260105
+1791570748  1791570748 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.2073813708260105
+1791570750  1791570750 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1704745166959578
+1791570752  1791570753 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.18189806678383125
+1791570755  1791570755 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.19947275922671348
+1791570757  1791570757 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.20826010544815465
+1791570759  1791570759 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.06854130052724072
+1791570761  1791570762 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:num_requests_waiting{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.10017574692442888
+1791570764  1791570764 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:num_requests_waiting{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.10896309314586994
+1791570766  1791570766 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:num_requests_waiting{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.12653778558875217
+1791570768  1791570768 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:num_requests_waiting{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.13532513181019334
+1791570771  1791570771 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:num_requests_waiting{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1441124780316344
+1791570773  1791570773 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:num_requests_waiting{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.15289982425307558
+1791570775  1791570775 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:num_requests_waiting{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.16168717047451675
+1791570777  1791570777 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.17926186291739898
+1791570779  1791570780 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.19683655536028122
+1791570782  1791570782 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.20298769771529002
+1791570784  1791570784 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.20826010544815465
+1791570786  1791570786 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1546572934973638
+1791570788  1791570788 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1546572934973638
+1791570791  1791570791 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.17135325131810197
+1791570793  1791570793 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1827768014059754
+1791570795  1791570795 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.20035149384885764
+1791570797  1791570797 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.20913884007029881
+1791570799  1791570800 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.21089630931458703
+1791570802  1791570802 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.18365553602811946
+1791570804  1791570804 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.20386643233743407
+1791570806  1791570806 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.21265377855887524
+1791570808  1791570809 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.21177504393673108
+1791570811  1791570811 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.21177504393673108
+1791570813  1791570814 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.18453427065026362
+1791570816  1791570816 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.20474516695957823
+1791570818  1791570818 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.2135325131810193
+1791570820  1791570820 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.22231985940246046
+1791570822  1791570823 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.22056239015817225
+1791570825  1791570825 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 3.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.22056239015817225
+1791570827  1791570827 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.164323374340949
+1791570829  1791570829 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.164323374340949
+1791570831  1791570831 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.12829525483304038
+1791570834  1791570834 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.148506151142355
+1791570836  1791570836 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.15729349736379616
+1791570838  1791570838 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.16608084358523723
+1791570840  1791570841 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.16520210896309317
+1791570843  1791570843 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.16520210896309317
+1791570845  1791570845 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.16520210896309317
+1791570847  1791570847 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.11072056239015815
+1791570849  1791570849 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.13971880492091393
+1791570852  1791570852 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.148506151142355
+1791570854  1791570854 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.15729349736379616
+1791570856  1791570856 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.16783831282952544
+1791570858  1791570859 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.06942003514938488
+1791570861  1791570861 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.10105448154657293
+1791570863  1791570863 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1098418277680141
+1791570865  1791570865 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.11862917398945516
+1791570868  1791570868 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1362038664323374
+1791570870  1791570870 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.14499121265377857
+1791570872  1791570872 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.15377855887521963
+1791570874  1791570874 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1625659050966608
+1791570877  1791570877 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1159929701230229
+1791570879  1791570879 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.13181019332161692
+1791570881  1791570881 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.14938488576449915
+1791570883  1791570884 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.15817223198594021
+1791570886  1791570886 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1704745166959578
+1791570888  1791570888 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1669595782073814
+1791570890  1791570890 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.07029876977152905
+1791570893  1791570893 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.10193321616871709
+1791570895  1791570895 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.11072056239015815
+1791570897  1791570897 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.11950790861159932
+1791570899  1791570899 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.13708260105448156
+1791570902  1791570902 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.14586994727592262
+1791570904  1791570904 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1546572934973638
+1791570906  1791570906 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.16344463971880496
+1791570908  1791570908 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.17135325131810197
+1791570911  1791570911 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1669595782073814
+1791570913  1791570913 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1669595782073814
+1791570915  1791570915 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.11247803163444636
+1791570917  1791570917 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.14147627416520214
+1791570919  1791570920 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1502636203866432
+1791570922  1791570922 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.15905096660808438
+1791570924  1791570924 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.17311072056239019
+1791570926  1791570926 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.16783831282952544
+1791570928  1791570928 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.16783831282952544
+1791570931  1791570931 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.16783831282952544
+1791570933  1791570933 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1300527240773286
+1791570935  1791570935 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.14147627416520214
+1791570937  1791570937 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.15905096660808438
+1791570940  1791570940 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.16783831282952544
+1791570942  1791570942 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.16783831282952544
+1791570944  1791570944 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.16783831282952544
+1791570946  1791570946 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1687170474516696
+1791570949  1791570949 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.11247803163444636
+1791570951  1791570951 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.14147627416520214
+1791570953  1791570953 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1502636203866432
+1791570955  1791570956 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.15905096660808438
+1791570958  1791570958 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.17311072056239019
+1791570960  1791570960 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1687170474516696
+1791570962  1791570962 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1300527240773286
+1791570964  1791570965 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1502636203866432
+1791570967  1791570967 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.15905096660808438
+1791570969  1791570969 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.16783831282952544
+1791570971  1791570971 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1687170474516696
+1791570973  1791570974 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.16959578207381376
+1791570976  1791570976 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.0913884007029877
+1791570978  1791570978 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.10281195079086114
+1791570980  1791570980 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.12038664323374337
+1791570982  1791570982 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.12917398945518455
+1791570985  1791570985 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1379613356766256
+1791570987  1791570987 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.14674868189806678
+1791570989  1791570989 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.15553602811950795
+1791570991  1791570991 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.164323374340949
+1791570994  1791570994 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.17398945518453424
+1791570996  1791570996 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.13093145869947276
+1791570998  1791570998 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.15114235500878737
+1791571000  1791571001 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.15992970123022843
+1791571003  1791571003 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1687170474516696
+1791571005  1791571005 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.16959578207381376
+1791571007  1791571007 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.13093145869947276
+1791571010  1791571010 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1423550087873462
+1791571012  1791571012 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.15992970123022843
+1791571014  1791571014 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1687170474516696
+1791571016  1791571016 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.16959578207381376
+1791571019  1791571019 
+1791571021  1791571021 
+1791571023  1791571023 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.04393673110720564
+1791571025  1791571026 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.0527240773286467
+1791571028  1791571028 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:num_requests_waiting{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.061511423550087874
+1791571030  1791571030 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.09050966608084354
+1791571032  1791571032 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.10281195079086114
+1791571034  1791571035 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.11511423550087874
+1791571037  1791571037 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.12390158172231991
+1791571039  1791571039 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.13268892794376097
+1791571041  1791571041 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.14147627416520214
+1791571044  1791571044 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1502636203866432
+1791571046  1791571046 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.15905096660808438
+1791571048  1791571048 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.16783831282952544
+1791571050  1791571051 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.17135325131810197
+1791571053  1791571053 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.11423550087873457
+1791571055  1791571055 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.13181019332161692
+1791571057  1791571057 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.15202108963093142
+1791571059  1791571060 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1608084358523726
+1791571062  1791571062 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.16959578207381376
+1791571064  1791571064 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.07205623901581726
+1791571066  1791571066 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.09226713532513175
+1791571069  1791571069 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.11247803163444636
+1791571071  1791571071 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.12126537785588754
+1791571073  1791571073 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1300527240773286
+1791571075  1791571075 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.14762741652021094
+1791571078  1791571078 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.156414762741652
+1791571080  1791571080 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.16520210896309317
+1791571082  1791571082 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.17398945518453424
+1791571084  1791571085 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.17223198594024602
+1791571087  1791571087 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1159929701230229
+1791571089  1791571089 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.14499121265377857
+1791571091  1791571091 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.15377855887521963
+1791571093  1791571093 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.17135325131810197
+1791571096  1791571096 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.17311072056239019
+1791571098  1791571098 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.17311072056239019
+1791571100  1791571100 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.17311072056239019
+1791571102  1791571102 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.13356766256590513
+1791571105  1791571105 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.14499121265377857
+1791571107  1791571107 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1625659050966608
+1791571109  1791571109 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.17135325131810197
+1791571111  1791571111 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.17311072056239019
+1791571114  1791571114 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.17398945518453424
+1791571116  1791571116 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.17398945518453424
+1791571118  1791571118 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.17398945518453424
+1791571120  1791571120 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.09314586994727592
+1791571122  1791571123 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.10456942003514935
+1791571125  1791571125 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.12214411247803159
+1791571127  1791571127 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.13093145869947276
+1791571129  1791571129 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.13971880492091393
+1791571131  1791571131 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.148506151142355
+1791571134  1791571134 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.15729349736379616
+1791571136  1791571136 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.16608084358523723
+1791571138  1791571138 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1748681898066784
+1791571140  1791571140 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.17398945518453424
+1791571143  1791571143 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.17398945518453424
+1791571145  1791571145 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.07293497363796131
+1791571147  1791571147 
+1791571149  1791571149 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.04393673110720564
+1791571151  1791571152 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.061511423550087874
+1791571154  1791571154 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:num_requests_waiting{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.07029876977152905
+1791571156  1791571156 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.09050966608084354
+1791571158  1791571158 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.10808435852372589
+1791571160  1791571161 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.11423550087873457
+1791571163  1791571163 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.13181019332161692
+1791571165  1791571165 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.14059753954305798
+1791571167  1791571167 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.14938488576449915
+1791571170  1791571170 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.15817223198594021
+1791571172  1791571172 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1669595782073814
+1791571174  1791571174 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.17574692442882245
+1791571176  1791571176 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.17311072056239019
+1791571178  1791571179 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.17311072056239019
+1791571181  1791571181 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.17398945518453424
+1791571183  1791571183 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.17398945518453424
+1791571185  1791571185 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.17398945518453424
+1791571187  1791571187 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 2.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.17398945518453424
+1791571190  1791571190 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.11511423550087874
+1791571192  1791571192 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.11511423550087874
+1791571194  1791571194 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1159929701230229
+1791571196  1791571196 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1159929701230229
+1791571198  1791571199 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1159929701230229
+1791571201  1791571201 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1159929701230229
+1791571203  1791571203 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1159929701230229
+1791571205  1791571205 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1159929701230229
+1791571207  1791571207 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1159929701230229
+1791571210  1791571210 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1159929701230229
+1791571212  1791571212 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.1159929701230229
+1791571214  1791571214 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.11687170474516695
+1791571216  1791571216 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.11687170474516695
+1791571219  1791571219 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.11687170474516695
+1791571221  1791571221 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.11687170474516695
+1791571223  1791571223 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.11687170474516695
+1791571225  1791571225 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.11687170474516695
+1791571227  1791571227 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.11687170474516695
+1791571230  1791571230 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.11687170474516695
+1791571232  1791571232 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.11687170474516695
+1791571234  1791571234 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.11775043936731111
+1791571236  1791571236 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.11775043936731111
+1791571239  1791571239 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.11775043936731111
+1791571241  1791571241 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.11775043936731111
+1791571243  1791571243 
+1791571245  1791571245 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.032513181019332205
+1791571248  1791571248 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.041300527240773266
+1791571250  1791571250 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.046572934973638014
+1791571252  1791571252 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.046572934973638014
+1791571254  1791571254 
+1791571256  1791571257 
+1791571259  1791571259 
+1791571261  1791571261 
+1791571263  1791571263 
+1791571265  1791571265 
+1791571268  1791571268 
+1791571270  1791571270 
+1791571272  1791571272 
+1791571274  1791571274 
+1791571276  1791571277 
+1791571279  1791571279 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.046572934973638014
+1791571281  1791571281 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.05008787346221444
+1791571283  1791571283 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.05008787346221444
+1791571286  1791571286 
+1791571288  1791571288 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.05096660808435849
+1791571290  1791571290 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.05096660808435849
+1791571292  1791571292 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.05096660808435849
+1791571295  1791571295 
+1791571297  1791571297 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.05184534270650265
+1791571299  1791571299 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.05184534270650265
+1791571301  1791571301 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.05184534270650265
+1791571304  1791571304 
+1791571306  1791571306 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.05184534270650265
+1791571308  1791571308 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.05184534270650265
+1791571310  1791571310 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.05711775043936729
+1791571313  1791571313 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.05184534270650265
+1791571315  1791571315 
+1791571317  1791571317 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.0527240773286467
+1791571319  1791571319 
+1791571322  1791571322 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.055360281195079075
+1791571324  1791571324 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.0527240773286467
+1791571326  1791571326 
+1791571328  1791571329 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.05360281195079086
+1791571331  1791571331 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.05360281195079086
+1791571333  1791571333 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.05360281195079086
+1791571335  1791571335 
+1791571337  1791571337 
+1791571340  1791571340 
+1791571342  1791571342 
+1791571344  1791571344 
+1791571346  1791571346 
+1791571348  1791571348 
+1791571351  1791571351 
+1791571353  1791571353 
+1791571355  1791571355 
+1791571357  1791571357 
+1791571359  1791571360 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.05623901581722324
+1791571362  1791571362 
+1791571364  1791571364 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.05711775043936729
+1791571366  1791571366 
+1791571368  1791571369 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.06414762741652025
+1791571371  1791571371 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.06063268892794371
+1791571373  1791571373 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.06063268892794371
+1791571375  1791571376 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.061511423550087874
+1791571378  1791571378 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.061511423550087874
+1791571380  1791571380 vllm:num_requests_running{engine="0",model_name="qwen3.6-27b"} 1.0
+vllm:kv_cache_usage_perc{engine="0",model_name="qwen3.6-27b"} 0.061511423550087874

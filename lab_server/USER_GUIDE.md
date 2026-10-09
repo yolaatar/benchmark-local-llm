@@ -98,7 +98,7 @@ print(r.choices[0].message.content)
 
 ## Sharing the GPU
 
-- Several people can use it at the same time. In our tests, with 8 simultaneous users, each one kept about 90% of their writing speed and the first word arrived within 2 seconds.
+- Several people can use it at the same time. In our tests, with 8 simultaneous users, each one kept about 90% of their writing speed and the first word arrived within 2 seconds. With 3 agents working on real tasks at once, each task took about twice as long as alone (up to 5x for one of them), with the same quality of result.
 - A longer wait than usual before the first word usually means others are using it, not that it's broken.
 - The server runs on GPU 1 only. Don't start your own jobs on that card while the server is up; it reserves most of its memory.
 
