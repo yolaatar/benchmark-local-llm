@@ -1,0 +1,18 @@
+
+=== task_01_add_feature x opencode-tassan-vllm
+   338s, 114 turns, 6 files changed -> results/custom_task_01_add_feature_opencode-tassan-vllm.json
+
+=== task_02_write_test x opencode-tassan-vllm
+   195s, 84 turns, 1 files changed -> results/custom_task_02_write_test_opencode-tassan-vllm.json
+
+=== task_03_explain_module x opencode-tassan-vllm
+   26s, 8 turns, 0 files changed -> results/custom_task_03_explain_module_opencode-tassan-vllm.json
+
+=== task_05_refactor x opencode-tassan-vllm
+   138s, 64 turns, 7 files changed -> results/custom_task_05_refactor_opencode-tassan-vllm.json
+
+=== Summary
+task_01_add_feature           338s  114 turns  6 files
+task_02_write_test            195s  84 turns  1 files
+task_03_explain_module         26s  8 turns  0 files
+task_05_refactor              138s  64 turns  7 files

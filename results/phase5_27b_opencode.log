@@ -1,0 +1,22 @@
+
+=== task_01_add_feature x opencode-tassan-27b
+   464s, 50 turns, 4 files changed -> results/custom_task_01_add_feature_opencode-tassan-27b.json
+
+=== task_02_write_test x opencode-tassan-27b
+   259s, 12 turns, 1 files changed -> results/custom_task_02_write_test_opencode-tassan-27b.json
+
+=== task_03_explain_module x opencode-tassan-27b
+   220s, 3 turns, 0 files changed -> results/custom_task_03_explain_module_opencode-tassan-27b.json
+
+=== task_04_find_bug x opencode-tassan-27b
+   218s, 10 turns, 1 files changed -> results/custom_task_04_find_bug_opencode-tassan-27b.json
+
+=== task_05_refactor x opencode-tassan-27b
+   731s, 51 turns, 5 files changed -> results/custom_task_05_refactor_opencode-tassan-27b.json
+
+=== Summary
+task_01_add_feature           464s  50 turns  4 files
+task_02_write_test            259s  12 turns  1 files
+task_03_explain_module        220s  3 turns  0 files
+task_04_find_bug              218s  10 turns  1 files
+task_05_refactor              731s  51 turns  5 files

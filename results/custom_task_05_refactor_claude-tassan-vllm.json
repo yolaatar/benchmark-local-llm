@@ -1,0 +1,80 @@
+{
+  "task": "task_05_refactor",
+  "title": "Centralize large-image handling in ads_utils",
+  "category": "refactor",
+  "mode": "code",
+  "model": "claude-tassan-vllm",
+  "runner": "claude (headless) -> tassan vllm",
+  "served_model": "qwen3-coder-next",
+  "repo": "/Users/yolaatar/Developer/ADS/axondeepseg",
+  "base_ref": "cba1c422dc30e7f88f9db70c56663093b7086a1c",
+  "prompt": "The \"allow large images\" logic is duplicated across the codebase and has needed several bug fixes\nbecause call sites drifted apart. Refactor it, without changing behavior:\n\n1. In AxonDeepSeg/ads_utils.py, add a context manager (e.g. `large_image_limit(allow_large_images)`)\n   that temporarily raises PIL's `Image.MAX_IMAGE_PIXELS` to `_LARGE_IMAGE_PIXEL_LIMIT` when\n   `allow_large_images` is True and always restores the previous value on exit, even on error.\n   Use it everywhere the limit is currently saved/raised/restored by hand (`imread`, `get_imshape`),\n   and in `apply_model.axon_segmentation`, which currently raises the limit and never restores it\n   (keep its ADS_ALLOW_LARGE_IMAGES environment variable handling as is).\n2. In ads_utils.py, add a helper `add_allow_large_images_argument(parser)` that registers the\n   `--allow-large-images` CLI flag, and use it in segment.py, morphometrics/count_axons.py and\n   morphometrics/filter_morphometrics.py instead of their three copies of the argparse block.\n\nPublic function signatures and CLI behavior must stay the same.",
+  "elapsed_seconds": 167.2,
+  "timed_out": false,
+  "exit_code": 1,
+  "user_messages": 1,
+  "cost_usd": 0.0,
+  "num_turns": 68,
+  "tool_calls": null,
+  "usage": {
+    "input_tokens": 4528780,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 11603,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "",
+    "iterations": [],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "is_error": true,
+  "final_answer": "API Error: 400 This model's maximum context length is 131072 tokens. However, you requested 32000 output tokens and your prompt contains at least 99073 input tokens, for a total of at least 131073 tokens. Please reduce the length of the input prompt or the number of requested output tokens. (parameter=input_tokens, value=99073)",
+  "files_changed": [
+    {
+      "path": "AxonDeepSeg/ads_utils.py",
+      "added": "37",
+      "removed": "12"
+    },
+    {
+      "path": "AxonDeepSeg/apply_model.py",
+      "added": "6",
+      "removed": "1"
+    },
+    {
+      "path": "AxonDeepSeg/morphometrics/count_axons.py",
+      "added": "2",
+      "removed": "10"
+    },
+    {
+      "path": "AxonDeepSeg/morphometrics/filter_morphometrics.py",
+      "added": "2",
+      "removed": "10"
+    },
+    {
+      "path": "AxonDeepSeg/segment.py",
+      "added": "2",
+      "removed": "9"
+    }
+  ],
+  "diff": "diff --git a/AxonDeepSeg/ads_utils.py b/AxonDeepSeg/ads_utils.py\nindex 807e1ae..b191588 100644\n--- a/AxonDeepSeg/ads_utils.py\n+++ b/AxonDeepSeg/ads_utils.py\n@@ -14,6 +14,7 @@ from requests.packages.urllib3.util import Retry\n from tqdm import tqdm\n import imageio\n import numpy as np\n+from contextlib import contextmanager\n from PIL import Image\n from loguru import logger\n \n@@ -24,6 +25,23 @@ import re\n # PIL's default is ~178M pixels; 1B pixels accommodates most microscopy use cases.\n _LARGE_IMAGE_PIXEL_LIMIT = 1_000_000_000\n \n+\n+@contextmanager\n+def large_image_limit(allow_large_images: bool):\n+    \"\"\"Context manager to temporarily raise PIL's MAX_IMAGE_PIXELS limit.\n+\n+    :param allow_large_images: If True, temporarily raises the limit to\n+        _LARGE_IMAGE_PIXEL_LIMIT. Always restores the previous value on exit.\n+    \"\"\"\n+    old_limit = Image.MAX_IMAGE_PIXELS\n+    if allow_large_images:\n+        Image.MAX_IMAGE_PIXELS = _LARGE_IMAGE_PIXEL_LIMIT\n+    try:\n+        yield\n+    finally:\n+        Image.MAX_IMAGE_PIXELS = old_limit\n+\n+\n def download_data(url_data):\n     \"\"\" Downloads and extracts zip files from the web.\n     :return: 0 - Success, 1 - Encountered an exception.\n@@ -131,6 +149,7 @@ def imread(filename, use_16bit=False, allow_large_images=False):\n                                f\"file extensions:  '.png', '.tif', '.tiff', '.jpg' and '.jpeg'.\")\n \n     # Check if the image exceeds PIL's decompression bomb pixel limit.\n+    # This check happens before the context manager so it uses the current limit.\n     shape = get_imshape(filename, allow_large_images=allow_large_images)\n     n_pixels = shape[0] * shape[1]\n     if Image.MAX_IMAGE_PIXELS is not None and n_pixels > Image.MAX_IMAGE_PIXELS:\n@@ -146,10 +165,7 @@ def imread(filename, use_16bit=False, allow_large_images=False):\n             f\"{_LARGE_IMAGE_PIXEL_LIMIT:,} pixels.\"\n         )\n \n-    old_limit = Image.MAX_IMAGE_PIXELS\n-    if allow_large_images:\n-        Image.MAX_IMAGE_PIXELS = _LARGE_IMAGE_PIXEL_LIMIT\n-    try:\n+    with large_image_limit(allow_large_images):\n         props = imageio.v3.improps(filename) # new in v3 - standardized metadata\n         _img = imageio.v3.imread(filename)\n \n@@ -197,8 +213,6 @@ def imread(filename, use_16bit=False, allow_large_images=False):\n         # Remove singleton dimension\n         if img.ndim == 3 and img.shape[-1] == 1:\n            img = img[:, :, 0]\n-    finally:\n-        Image.MAX_IMAGE_PIXELS = old_limit\n \n     return img\n \n@@ -264,13 +278,8 @@ def get_file_extension(filename):\n def get_imshape(filename: str, allow_large_images: bool = False):\n     \"\"\"Get the shape of an image (HWC format) without reading its data.\n     \"\"\"\n-    old_limit = Image.MAX_IMAGE_PIXELS\n-    if allow_large_images:\n-        Image.MAX_IMAGE_PIXELS = _LARGE_IMAGE_PIXEL_LIMIT\n-    try:\n+    with large_image_limit(allow_large_images):\n         shape = imageio.v3.improps(filename).shape\n-    finally:\n-        Image.MAX_IMAGE_PIXELS = old_limit\n     if len(shape) == 2:\n         shape = (shape[0], shape[1], 1)\n     return shape\n@@ -295,3 +304,19 @@ def check_available_gpus(gpu_id):\n         sys.exit(3)\n \n     return n_gpus\n+\n+\n+def add_allow_large_images_argument(parser):\n+    \"\"\"Add the --allow-large-images argument to an argparse parser.\n+\n+    :param parser: argparse.ArgumentParser instance to modify in-place.\n+    \"\"\"\n+    parser.add_argument(\n+        \"--allow-large-images\",\n+        dest=\"allow_large_images\",\n+        required=False,\n+        action='store_true',\n+        default=False,\n+        help=\"Allow processing images exceeding PIL's default decompression bomb limit \"\n+             f\"(~178 Mpx). Use this for large microscopy acquisitions.\",\n+    )\ndiff --git a/AxonDeepSeg/apply_model.py b/AxonDeepSeg/apply_model.py\nindex 9c6129a..721a4d8 100644\n--- a/AxonDeepSeg/apply_model.py\n+++ b/AxonDeepSeg/apply_model.py\n@@ -9,7 +9,7 @@ from typing import List, Literal, NoReturn\n # AxonDeepSeg imports\n from AxonDeepSeg.visualization.merge_masks import merge_masks\n from AxonDeepSeg import ads_utils\n-from AxonDeepSeg.ads_utils import _LARGE_IMAGE_PIXEL_LIMIT\n+from AxonDeepSeg.ads_utils import _LARGE_IMAGE_PIXEL_LIMIT, large_image_limit\n from AxonDeepSeg.params import nnunet_suffix, intensity\n \n os.environ['nnUNet_raw'] = 'UNDEFINED'\n@@ -151,6 +151,8 @@ def axon_segmentation(\n     # can be read during preprocessing. On Linux (fork), workers inherit the parent's\n     # module state. On macOS (spawn), workers start fresh but inherit env vars — the\n     # ads_pil_patch.pth hook in site-packages checks this var at startup.\n+    # Store the original limit to restore it later.\n+    old_limit = Image.MAX_IMAGE_PIXELS\n     if allow_large_images:\n         Image.MAX_IMAGE_PIXELS = _LARGE_IMAGE_PIXEL_LIMIT\n         os.environ[\"ADS_ALLOW_LARGE_IMAGES\"] = \"1\"\n@@ -206,6 +208,9 @@ def axon_segmentation(\n     # Clean up env var so it doesn't leak to unrelated subprocesses later\n     os.environ.pop(\"ADS_ALLOW_LARGE_IMAGES\", None)\n \n+    # Restore PIL's pixel limit to the original value\n+    Image.MAX_IMAGE_PIXELS = old_limit\n+\n     output_structure = predictor.dataset_json['labels']\n     output_classes = sorted(list(output_structure.keys()))\n     output_classes.remove('background')\ndiff --git a/AxonDeepSeg/morphometrics/count_axons.py b/AxonDeepSeg/morphometrics/count_axons.py\nindex 2c5bd6c..c8c6de1 100644\n--- a/AxonDeepSeg/morphometrics/count_axons.py\n+++ b/AxonDeepSeg/morphometrics/count_axons.py\n@@ -10,7 +10,7 @@ from loguru import logger\n import pandas as pd\n from skimage import measure\n \n-from AxonDeepSeg.ads_utils import imread\n+from AxonDeepSeg.ads_utils import imread, add_allow_large_images_argument\n from AxonDeepSeg.params import generated_file_suffixes, valid_extensions\n \n \n@@ -35,15 +35,7 @@ def main(argv=None):\n         default='axon_counts.csv',\n         help='Name of the output file.',\n     )\n-    parser.add_argument(\n-        \"--allow-large-images\",\n-        dest=\"allow_large_images\",\n-        required=False,\n-        action='store_true',\n-        default=False,\n-        help='Allow counting axons on masks exceeding PIL\\'s default decompression bomb limit '\n-             f'(~89 Mpx). \\nUse this for large microscopy acquisitions.',\n-    )\n+    add_allow_large_images_argument(parser)\n \n     args = parser.parse_args(argv)\n     input_path = Path(args.input_dir)\ndiff --git a/AxonDeepSeg/morphometrics/filter_morphometrics.py b/AxonDeepSeg/morphometrics/filter_morphometrics.py\nindex ec98860..846b354 100644\n--- a/AxonDeepSeg/morphometrics/filter_morphometrics.py\n+++ b/AxonDeepSeg/morphometrics/filter_morphometrics.py\n@@ -14,7 +14,7 @@ import yaml\n import numpy as np\n from skimage import measure\n \n-from AxonDeepSeg.ads_utils import imread, imwrite\n+from AxonDeepSeg.ads_utils import imread, imwrite, add_allow_large_images_argument\n from AxonDeepSeg.morphometrics.compute_morphometrics import get_watershed_segmentation\n from AxonDeepSeg.visualization.merge_masks import merge_masks\n \n@@ -228,15 +228,7 @@ def main(argv=None):\n         action=\"store_true\",\n         help=\"Overwrite the original morphometric files (and segmentation masks if -m is set)\"\n     )\n-    ap.add_argument(\n-        \"--allow-large-images\",\n-        dest=\"allow_large_images\",\n-        required=False,\n-        action='store_true',\n-        default=False,\n-        help='Allow reading masks exceeding PIL\\'s default decompression bomb limit '\n-             f'(~89 Mpx). \\nUse this for large microscopy acquisitions.',\n-    )\n+    add_allow_large_images_argument(ap)\n \n     args = ap.parse_args(argv)\n \ndiff --git a/AxonDeepSeg/segment.py b/AxonDeepSeg/segment.py\nindex 874520a..e8910bf 100644\n--- a/AxonDeepSeg/segment.py\n+++ b/AxonDeepSeg/segment.py\n@@ -287,15 +287,8 @@ def main(argv=None):\n         help='Number representing the GPU ID for segmentation if available. Default: None (cpu).',\n         default=-1,\n     )\n-    ap.add_argument(\n-        \"--allow-large-images\",\n-        dest=\"allow_large_images\",\n-        required=False,\n-        action='store_true',\n-        default=False,\n-        help='Allow segmentation of images exceeding PIL\\'s default decompression bomb limit '\n-             f'(~178 Mpx). \\nUse this for large microscopy acquisitions.',\n-    )\n+    ads.add_allow_large_images_argument(ap)\n+\n     ap.add_argument(\n         \"--backend\",\n         required=False,\n",
+  "review": {
+    "success": null,
+    "notes": ""
+  },
+  "artifacts": {
+    "repo": "/Users/yolaatar/Developer/sidehustle/localmodels/benchmark-local-llm/work/task_05_refactor/claude-tassan-vllm/repo",
+    "stdout": "/Users/yolaatar/Developer/sidehustle/localmodels/benchmark-local-llm/work/task_05_refactor/claude-tassan-vllm/claude_stdout.json"
+  },
+  "date": "2026-10-07T20:43:07"
+}

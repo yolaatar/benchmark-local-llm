@@ -1,0 +1,659 @@
+{
+  "config": {
+    "url": "http://127.0.0.1:8001",
+    "api": "openai",
+    "model": "qwen3.6-27b",
+    "users": "1,2,3,4,8",
+    "requests_per_user": 3,
+    "arrival": "burst",
+    "stagger": 1.0,
+    "rate": 0.5,
+    "think_time": 0.0,
+    "prompt_tokens": 1500,
+    "max_tokens": 400,
+    "num_ctx": 8192,
+    "no_think": false,
+    "timeout": 1800,
+    "gpu": false,
+    "gpu_index": null,
+    "label": "vllm-27b-from-mac"
+  },
+  "server": {},
+  "levels": [
+    {
+      "users": 1,
+      "requests": 3,
+      "ok": 3,
+      "errors": 0,
+      "error_samples": [],
+      "wall_s": 26.18,
+      "ttft_p50_s": 0.3134703750256449,
+      "ttft_p95_s": 0.3905281249899417,
+      "ttft_max_s": 0.3905281249899417,
+      "e2e_p50_s": 8.712355874944478,
+      "e2e_p95_s": 8.764238000148907,
+      "decode_tok_s_per_req_p50": 47.66399291932865,
+      "aggregate_out_tok_s": 45.8,
+      "gpu_mem_peak_mib": null,
+      "gpu_util_mean": null,
+      "records": [
+        {
+          "t_submit": 0.001,
+          "t_first": 0.392,
+          "t_end": 8.765,
+          "out_tokens": 400,
+          "prompt_tokens": 1351,
+          "status": 200,
+          "error": null,
+          "user": 0
+        },
+        {
+          "t_submit": 8.766,
+          "t_first": 9.079,
+          "t_end": 17.471,
+          "out_tokens": 400,
+          "prompt_tokens": 1349,
+          "status": 200,
+          "error": null,
+          "user": 0
+        },
+        {
+          "t_submit": 17.471,
+          "t_first": 17.76,
+          "t_end": 26.184,
+          "out_tokens": 400,
+          "prompt_tokens": 1353,
+          "status": 200,
+          "error": null,
+          "user": 0
+        }
+      ]
+    },
+    {
+      "users": 2,
+      "requests": 6,
+      "ok": 6,
+      "errors": 0,
+      "error_samples": [],
+      "wall_s": 28.56,
+      "ttft_p50_s": 0.5029295000713319,
+      "ttft_p95_s": 0.5360012908931822,
+      "ttft_max_s": 0.5360012908931822,
+      "e2e_p50_s": 9.490832334151492,
+      "e2e_p95_s": 9.592580375028774,
+      "decode_tok_s_per_req_p50": 44.34343195396995,
+      "aggregate_out_tok_s": 84.0,
+      "gpu_mem_peak_mib": null,
+      "gpu_util_mean": null,
+      "records": [
+        {
+          "t_submit": 0.0,
+          "t_first": 0.435,
+          "t_end": 9.456,
+          "out_tokens": 400,
+          "prompt_tokens": 1348,
+          "status": 200,
+          "error": null,
+          "user": 1
+        },
+        {
+          "t_submit": 0.0,
+          "t_first": 0.499,
+          "t_end": 9.588,
+          "out_tokens": 400,
+          "prompt_tokens": 1351,
+          "status": 200,
+          "error": null,
+          "user": 0
+        },
+        {
+          "t_submit": 9.456,
+          "t_first": 9.992,
+          "t_end": 19.049,
+          "out_tokens": 400,
+          "prompt_tokens": 1353,
+          "status": 200,
+          "error": null,
+          "user": 1
+        },
+        {
+          "t_submit": 9.588,
+          "t_first": 10.099,
+          "t_end": 19.066,
+          "out_tokens": 400,
+          "prompt_tokens": 1349,
+          "status": 200,
+          "error": null,
+          "user": 0
+        },
+        {
+          "t_submit": 19.049,
+          "t_first": 19.552,
+          "t_end": 28.539,
+          "out_tokens": 400,
+          "prompt_tokens": 1354,
+          "status": 200,
+          "error": null,
+          "user": 1
+        },
+        {
+          "t_submit": 19.066,
+          "t_first": 19.569,
+          "t_end": 28.56,
+          "out_tokens": 400,
+          "prompt_tokens": 1353,
+          "status": 200,
+          "error": null,
+          "user": 0
+        }
+      ]
+    },
+    {
+      "users": 3,
+      "requests": 9,
+      "ok": 9,
+      "errors": 0,
+      "error_samples": [],
+      "wall_s": 29.54,
+      "ttft_p50_s": 0.6625879581551999,
+      "ttft_p95_s": 0.7071033329702914,
+      "ttft_max_s": 0.7071033329702914,
+      "e2e_p50_s": 9.846362250158563,
+      "e2e_p95_s": 9.859951874939725,
+      "decode_tok_s_per_req_p50": 43.575161333937494,
+      "aggregate_out_tok_s": 121.9,
+      "gpu_mem_peak_mib": null,
+      "gpu_util_mean": null,
+      "records": [
+        {
+          "t_submit": 0.001,
+          "t_first": 0.634,
+          "t_end": 9.847,
+          "out_tokens": 400,
+          "prompt_tokens": 1353,
+          "status": 200,
+          "error": null,
+          "user": 2
+        },
+        {
+          "t_submit": 0.001,
+          "t_first": 0.677,
+          "t_end": 9.856,
+          "out_tokens": 400,
+          "prompt_tokens": 1346,
+          "status": 200,
+          "error": null,
+          "user": 1
+        },
+        {
+          "t_submit": 0.0,
+          "t_first": 0.677,
+          "t_end": 9.856,
+          "out_tokens": 400,
+          "prompt_tokens": 1351,
+          "status": 200,
+          "error": null,
+          "user": 0
+        },
+        {
+          "t_submit": 9.847,
+          "t_first": 10.462,
+          "t_end": 19.661,
+          "out_tokens": 400,
+          "prompt_tokens": 1354,
+          "status": 200,
+          "error": null,
+          "user": 2
+        },
+        {
+          "t_submit": 9.856,
+          "t_first": 10.519,
+          "t_end": 19.667,
+          "out_tokens": 400,
+          "prompt_tokens": 1353,
+          "status": 200,
+          "error": null,
+          "user": 1
+        },
+        {
+          "t_submit": 9.856,
+          "t_first": 10.519,
+          "t_end": 19.678,
+          "out_tokens": 400,
+          "prompt_tokens": 1349,
+          "status": 200,
+          "error": null,
+          "user": 0
+        },
+        {
+          "t_submit": 19.661,
+          "t_first": 20.157,
+          "t_end": 29.502,
+          "out_tokens": 400,
+          "prompt_tokens": 1350,
+          "status": 200,
+          "error": null,
+          "user": 2
+        },
+        {
+          "t_submit": 19.667,
+          "t_first": 20.343,
+          "t_end": 29.52,
+          "out_tokens": 400,
+          "prompt_tokens": 1353,
+          "status": 200,
+          "error": null,
+          "user": 1
+        },
+        {
+          "t_submit": 19.678,
+          "t_first": 20.385,
+          "t_end": 29.538,
+          "out_tokens": 400,
+          "prompt_tokens": 1353,
+          "status": 200,
+          "error": null,
+          "user": 0
+        }
+      ]
+    },
+    {
+      "users": 4,
+      "requests": 12,
+      "ok": 12,
+      "errors": 0,
+      "error_samples": [],
+      "wall_s": 30.27,
+      "ttft_p50_s": 0.7985048750415444,
+      "ttft_p95_s": 0.8512722498271614,
+      "ttft_max_s": 0.8741373340599239,
+      "e2e_p50_s": 10.055454958928749,
+      "e2e_p95_s": 10.18913779198192,
+      "decode_tok_s_per_req_p50": 43.23024982897003,
+      "aggregate_out_tok_s": 158.6,
+      "gpu_mem_peak_mib": null,
+      "gpu_util_mean": null,
+      "records": [
+        {
+          "t_submit": 0.0,
+          "t_first": 0.772,
+          "t_end": 10.075,
+          "out_tokens": 400,
+          "prompt_tokens": 1351,
+          "status": 200,
+          "error": null,
+          "user": 0
+        },
+        {
+          "t_submit": 0.001,
+          "t_first": 0.852,
+          "t_end": 10.19,
+          "out_tokens": 400,
+          "prompt_tokens": 1353,
+          "status": 200,
+          "error": null,
+          "user": 3
+        },
+        {
+          "t_submit": 0.001,
+          "t_first": 0.875,
+          "t_end": 10.19,
+          "out_tokens": 400,
+          "prompt_tokens": 1353,
+          "status": 200,
+          "error": null,
+          "user": 2
+        },
+        {
+          "t_submit": 0.001,
+          "t_first": 0.852,
+          "t_end": 10.19,
+          "out_tokens": 400,
+          "prompt_tokens": 1349,
+          "status": 200,
+          "error": null,
+          "user": 1
+        },
+        {
+          "t_submit": 10.075,
+          "t_first": 10.852,
+          "t_end": 20.2,
+          "out_tokens": 400,
+          "prompt_tokens": 1349,
+          "status": 200,
+          "error": null,
+          "user": 0
+        },
+        {
+          "t_submit": 10.191,
+          "t_first": 10.975,
+          "t_end": 20.221,
+          "out_tokens": 400,
+          "prompt_tokens": 1353,
+          "status": 200,
+          "error": null,
+          "user": 1
+        },
+        {
+          "t_submit": 10.19,
+          "t_first": 10.975,
+          "t_end": 20.224,
+          "out_tokens": 400,
+          "prompt_tokens": 1351,
+          "status": 200,
+          "error": null,
+          "user": 3
+        },
+        {
+          "t_submit": 10.19,
+          "t_first": 10.997,
+          "t_end": 20.225,
+          "out_tokens": 400,
+          "prompt_tokens": 1354,
+          "status": 200,
+          "error": null,
+          "user": 2
+        },
+        {
+          "t_submit": 20.2,
+          "t_first": 20.889,
+          "t_end": 30.255,
+          "out_tokens": 400,
+          "prompt_tokens": 1353,
+          "status": 200,
+          "error": null,
+          "user": 0
+        },
+        {
+          "t_submit": 20.221,
+          "t_first": 21.02,
+          "t_end": 30.266,
+          "out_tokens": 400,
+          "prompt_tokens": 1353,
+          "status": 200,
+          "error": null,
+          "user": 1
+        },
+        {
+          "t_submit": 20.225,
+          "t_first": 21.02,
+          "t_end": 30.273,
+          "out_tokens": 400,
+          "prompt_tokens": 1351,
+          "status": 200,
+          "error": null,
+          "user": 2
+        },
+        {
+          "t_submit": 20.225,
+          "t_first": 21.039,
+          "t_end": 30.273,
+          "out_tokens": 400,
+          "prompt_tokens": 1349,
+          "status": 200,
+          "error": null,
+          "user": 3
+        }
+      ]
+    },
+    {
+      "users": 8,
+      "requests": 24,
+      "ok": 24,
+      "errors": 0,
+      "error_samples": [],
+      "wall_s": 32.39,
+      "ttft_p50_s": 1.5493641661014408,
+      "ttft_p95_s": 1.5733074590098113,
+      "ttft_max_s": 1.5741027500480413,
+      "e2e_p50_s": 10.789060041075572,
+      "e2e_p95_s": 10.851843832992017,
+      "decode_tok_s_per_req_p50": 43.312655871206395,
+      "aggregate_out_tok_s": 296.4,
+      "gpu_mem_peak_mib": null,
+      "gpu_util_mean": null,
+      "records": [
+        {
+          "t_submit": 0.001,
+          "t_first": 1.247,
+          "t_end": 10.849,
+          "out_tokens": 400,
+          "prompt_tokens": 1349,
+          "status": 200,
+          "error": null,
+          "user": 1
+        },
+        {
+          "t_submit": 0.002,
+          "t_first": 1.551,
+          "t_end": 10.851,
+          "out_tokens": 400,
+          "prompt_tokens": 1354,
+          "status": 200,
+          "error": null,
+          "user": 3
+        },
+        {
+          "t_submit": 0.002,
+          "t_first": 1.551,
+          "t_end": 10.852,
+          "out_tokens": 400,
+          "prompt_tokens": 1349,
+          "status": 200,
+          "error": null,
+          "user": 5
+        },
+        {
+          "t_submit": 0.001,
+          "t_first": 1.551,
+          "t_end": 10.853,
+          "out_tokens": 400,
+          "prompt_tokens": 1351,
+          "status": 200,
+          "error": null,
+          "user": 0
+        },
+        {
+          "t_submit": 0.002,
+          "t_first": 1.551,
+          "t_end": 10.853,
+          "out_tokens": 400,
+          "prompt_tokens": 1349,
+          "status": 200,
+          "error": null,
+          "user": 4
+        },
+        {
+          "t_submit": 0.001,
+          "t_first": 1.552,
+          "t_end": 10.854,
+          "out_tokens": 400,
+          "prompt_tokens": 1353,
+          "status": 200,
+          "error": null,
+          "user": 2
+        },
+        {
+          "t_submit": 0.003,
+          "t_first": 1.551,
+          "t_end": 10.854,
+          "out_tokens": 400,
+          "prompt_tokens": 1353,
+          "status": 200,
+          "error": null,
+          "user": 6
+        },
+        {
+          "t_submit": 0.004,
+          "t_first": 1.568,
+          "t_end": 10.854,
+          "out_tokens": 400,
+          "prompt_tokens": 1354,
+          "status": 200,
+          "error": null,
+          "user": 7
+        },
+        {
+          "t_submit": 10.85,
+          "t_first": 12.094,
+          "t_end": 21.617,
+          "out_tokens": 400,
+          "prompt_tokens": 1353,
+          "status": 200,
+          "error": null,
+          "user": 1
+        },
+        {
+          "t_submit": 10.852,
+          "t_first": 12.425,
+          "t_end": 21.64,
+          "out_tokens": 400,
+          "prompt_tokens": 1353,
+          "status": 200,
+          "error": null,
+          "user": 5
+        },
+        {
+          "t_submit": 10.851,
+          "t_first": 12.425,
+          "t_end": 21.642,
+          "out_tokens": 400,
+          "prompt_tokens": 1351,
+          "status": 200,
+          "error": null,
+          "user": 3
+        },
+        {
+          "t_submit": 10.853,
+          "t_first": 12.425,
+          "t_end": 21.642,
+          "out_tokens": 400,
+          "prompt_tokens": 1349,
+          "status": 200,
+          "error": null,
+          "user": 0
+        },
+        {
+          "t_submit": 10.854,
+          "t_first": 12.425,
+          "t_end": 21.642,
+          "out_tokens": 400,
+          "prompt_tokens": 1354,
+          "status": 200,
+          "error": null,
+          "user": 2
+        },
+        {
+          "t_submit": 10.855,
+          "t_first": 12.425,
+          "t_end": 21.643,
+          "out_tokens": 400,
+          "prompt_tokens": 1351,
+          "status": 200,
+          "error": null,
+          "user": 7
+        },
+        {
+          "t_submit": 10.853,
+          "t_first": 12.425,
+          "t_end": 21.643,
+          "out_tokens": 400,
+          "prompt_tokens": 1349,
+          "status": 200,
+          "error": null,
+          "user": 4
+        },
+        {
+          "t_submit": 10.854,
+          "t_first": 12.425,
+          "t_end": 21.643,
+          "out_tokens": 400,
+          "prompt_tokens": 1354,
+          "status": 200,
+          "error": null,
+          "user": 6
+        },
+        {
+          "t_submit": 21.618,
+          "t_first": 22.949,
+          "t_end": 32.36,
+          "out_tokens": 400,
+          "prompt_tokens": 1354,
+          "status": 200,
+          "error": null,
+          "user": 1
+        },
+        {
+          "t_submit": 21.642,
+          "t_first": 23.15,
+          "t_end": 32.385,
+          "out_tokens": 400,
+          "prompt_tokens": 1353,
+          "status": 200,
+          "error": null,
+          "user": 0
+        },
+        {
+          "t_submit": 21.64,
+          "t_first": 23.149,
+          "t_end": 32.385,
+          "out_tokens": 400,
+          "prompt_tokens": 1353,
+          "status": 200,
+          "error": null,
+          "user": 5
+        },
+        {
+          "t_submit": 21.642,
+          "t_first": 23.15,
+          "t_end": 32.385,
+          "out_tokens": 400,
+          "prompt_tokens": 1349,
+          "status": 200,
+          "error": null,
+          "user": 3
+        },
+        {
+          "t_submit": 21.643,
+          "t_first": 23.15,
+          "t_end": 32.389,
+          "out_tokens": 400,
+          "prompt_tokens": 1349,
+          "status": 200,
+          "error": null,
+          "user": 7
+        },
+        {
+          "t_submit": 21.642,
+          "t_first": 23.166,
+          "t_end": 32.389,
+          "out_tokens": 400,
+          "prompt_tokens": 1351,
+          "status": 200,
+          "error": null,
+          "user": 2
+        },
+        {
+          "t_submit": 21.643,
+          "t_first": 23.167,
+          "t_end": 32.389,
+          "out_tokens": 400,
+          "prompt_tokens": 1353,
+          "status": 200,
+          "error": null,
+          "user": 4
+        },
+        {
+          "t_submit": 21.643,
+          "t_first": 23.166,
+          "t_end": 32.389,
+          "out_tokens": 400,
+          "prompt_tokens": 1351,
+          "status": 200,
+          "error": null,
+          "user": 6
+        }
+      ]
+    }
+  ]
+}

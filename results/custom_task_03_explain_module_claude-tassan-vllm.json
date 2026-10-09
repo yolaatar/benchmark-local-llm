@@ -1,0 +1,54 @@
+{
+  "task": "task_03_explain_module",
+  "title": "Explain the morphometrics filtering + axon counting pipeline",
+  "category": "analyze_code",
+  "mode": "ask",
+  "model": "claude-tassan-vllm",
+  "runner": "claude (headless) -> tassan vllm",
+  "served_model": "qwen3-coder-next",
+  "repo": "/Users/yolaatar/Developer/ADS/axondeepseg",
+  "base_ref": "cba1c422dc30e7f88f9db70c56663093b7086a1c",
+  "prompt": "I'm new to this codebase. Explain how the morphometrics filtering and axon counting pipeline works\n(`axondeepseg_filter`, implemented in AxonDeepSeg/morphometrics/filter_morphometrics.py with its\nconfig filter.yaml, and `axondeepseg_count` in AxonDeepSeg/morphometrics/count_axons.py).\n\nCover: what the config file controls and how rules are applied, how the segmentation masks are\nupdated to match the filtered morphometrics, how the two counting modes work and which files they\nread, and how the two tools are meant to be chained. Finish with the pitfalls or surprising\nbehaviors a user or developer should know about. Be precise and only state what the code does.",
+  "elapsed_seconds": 19.8,
+  "timed_out": false,
+  "exit_code": 0,
+  "user_messages": 1,
+  "cost_usd": 0.0,
+  "num_turns": 11,
+  "tool_calls": null,
+  "usage": {
+    "input_tokens": 201683,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 2298,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "",
+    "iterations": [],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "is_error": false,
+  "final_answer": "Now I have a complete picture of the pipeline. Let me provide a comprehensive explanation.\n\n---\n\n## Morphometrics Filtering and Axon Counting Pipeline\n\n### Overview\n\nThe pipeline consists of two CLI tools:\n\n1. **`axondeepseg_filter`** - Filters morphometrics based on user-defined criteria and optionally updates segmentation masks\n2. **`axondeepseg_count`** - Counts axons in morphometrics files or segmentation masks\n\n---\n\n### 1. `filter_morphometrics.py` - `axondeepseg_filter`\n\n**Purpose**: Filter morphometrics Excel files based on user-defined rules and optionally update segmentation masks.\n\n#### Configuration File (`filter.yaml`)\n\nThe config controls filtering rules for both myelinated and unmyelinated axons:\n\n```yaml\nmyelinated:\n  - valid-g-ratio-only: True\n  - axon-diam-gt: ~\n\nunmyelinated:\n  - axon-diam-gt: ~\n  - solidity-gt: ~\n  - axon-area-lt: ~\n```\n\n- Each key under `myelinated`/`unmyelinated` is a **rule**\n- Values are thresholds; `~` means \"no filter\" (None is ignored)\n- Rules are applied **sequentially** in order\n\n#### Supported Rules\n\n| Rule | Applicable | Description |\n|------|------------|-------------|\n| `valid-g-ratio-only: True` | myelinated | Filters to g-ratio in (0, 1), drops NaN |\n| `axon-diam-gt: threshold` | both | Keep axons with diameter > threshold (μm) |\n| `solidity-gt: threshold` | unmyelinated | Keep axons with solidity > threshold |\n| `axon-area-lt: threshold` | unmyelinated | Keep axons with area < threshold (μm²) |\n\n#### File Discovery\n\n- `input` can be a morphometrics file or folder\n- Auto-discovers corresponding files:\n  - Myelinated: `*_axon_morphometrics.xlsx`\n  - Unmyelinated: `*_uaxon_morphometrics.xlsx`\n\n#### Mask Updates (`-m` / `--update_masks`)\n\nWhen enabled, masks are updated to match filtered morphometrics:\n\n**Myelinated**:\n- Reads `*_seg-axon.png` and `*_seg-myelin.png`\n- Uses `*_instance-map.png` if available (computed from watershed if missing)\n- Sets invalid axon pixels to 0 in both masks\n\n**Unmyelinated**:\n- Reads `*_seg-uaxon.png`\n- Uses label connectivity=1 to get instance map\n- Sets invalid axon pixels to 0\n\n**Output**:\n- Without `-o`: saves as `*_filtered.png` (preserves originals)\n- With `-o`: overwrites original mask files\n\n#### Morphometrics File Output\n\n- Without `-o`: saves filtered data as `*_axon_morphometrics_filtered.xlsx`\n- With `-o`: overwrites original Excel file\n\n---\n\n### 2. `count_axons.py` - `axondeepseg_count`\n\n**Purpose**: Count axons from either morphometrics files or segmentation masks.\n\n#### Two Modes\n\n**Default mode (morphometrics file)**:\n- Reads `*_axon_morphometrics.xlsx` and `*_uaxon_morphometrics.xlsx`\n- Count = number of rows in each Excel file\n- **Precedence**: `*_filtered.xlsx` files take priority over unfiltered files\n- Falls back to 0 if unmyelinated file doesn't exist\n\n**Mask mode (`-m` / `--mask_mode`)**:\n- Reads `*_seg-axonmyelin.png` and `*_seg-uaxon.png`\n- Uses `measure.regionprops` on label images to count connected components\n- Threshold: >200 (binary mask)\n- **Precedence**: `*_filtered.png` masks take priority over unfiltered\n- Reports total area in pixels\n\n#### File Discovery\n\n- Input can be an image file or folder\n- Scans for valid extensions (`.png`, `.tif`, `.tiff`, `.jpg`, `.jpeg`)\n- Ignores generated suffixes (`_seg-*.png`, `*_morphometrics.xlsx`, etc.)\n\n#### Output\n\nCSV file with columns: `image`, `axon_count`, `uaxon_count`\n\n---\n\n### Chaining the Tools\n\nTypical workflow:\n\n```bash\n# 1. Run morphometrics computation (produces Excel files)\naxondeepseg_morphometrics -i images/\n\n# 2. Filter morphometrics\naxondeepseg_filter -i images/ -c filter.yaml -m\n\n# 3. Count axons (reads filtered files automatically)\naxondeepseg_count -i images/\n```\n\nThe tools are chained because:\n1. `filter` updates Excel files (or creates `_filtered.xlsx`)\n2. `count` automatically prefers `_filtered.xlsx` over unfiltered files\n3. If `-m` was used, masks are also updated and `count` will use filtered masks in mask mode\n\n---\n\n### Pitfalls and Surprising Behaviors\n\n1. **Config requires both keys**: `read_config()` enforces exact keys `myelinated` and `unmyelinated` — missing or extra keys raise `ValueError`\n\n2. **Mask paths are derived from morphometrics filenames**: The code assumes `*_axon_morphometrics.xlsx` → `*_seg-axon.png` etc. This is brittle if naming conventions differ\n\n3. **Missing instance map for myelinated**: If `*_instance-map.png` doesn't exist, it's computed via `get_watershed_segmentation()` (code duplication from `compute_morphometrics.py`)\n\n4. **Index offset**: Line 131 does `i + 1` because instance maps use 1-based IDs while Excel rows are 0-indexed\n\n5. **Mask thresholding**: `count_axons` in mask mode uses `> 200` threshold (hardcoded), assuming ADS convention where axons are 255, myelin is 127\n\n6. **`allow_large_images` default is False**: Large images (>89 Mpx) fail unless flag is passed; this applies to both tools\n\n7. **Unmyelinated count defaults to 0**: If no `*_uaxon_morphometrics.xlsx` exists, count is silently set to 0 with a log message\n\n8. **Filter rules are sequential**: Each rule filters the result of the previous — not all rules apply to all datasets (e.g., `valid-g-ratio-only` doesn't exist in unmyelinated rules)\n\n9. **Mask merge**: When myelinated masks are updated, `merge_masks()` is called to produce `*_seg-axonmyelin.png` (line 160)\n\n10. **No validation of mask/morphometrics alignment**: The code assumes masks and Excel files are from the same segmentation run — no consistency checks",
+  "files_changed": [],
+  "diff": "",
+  "review": {
+    "success": null,
+    "notes": ""
+  },
+  "artifacts": {
+    "repo": "/Users/yolaatar/Developer/sidehustle/localmodels/benchmark-local-llm/work/task_03_explain_module/claude-tassan-vllm/repo",
+    "stdout": "/Users/yolaatar/Developer/sidehustle/localmodels/benchmark-local-llm/work/task_03_explain_module/claude-tassan-vllm/claude_stdout.json"
+  },
+  "date": "2026-10-07T20:40:01"
+}

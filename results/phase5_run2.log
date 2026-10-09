@@ -1,0 +1,36 @@
+
+=== task_01_add_feature x opencode-tassan-vllm
+   142s, 77 turns, 0 files changed -> results/custom_task_01_add_feature_opencode-tassan-vllm.json
+
+=== task_02_write_test x opencode-tassan-vllm
+   109s, 40 turns, 1 files changed -> results/custom_task_02_write_test_opencode-tassan-vllm.json
+
+=== task_03_explain_module x opencode-tassan-vllm
+   66s, 48 turns, 0 files changed -> results/custom_task_03_explain_module_opencode-tassan-vllm.json
+
+=== task_04_find_bug x opencode-tassan-vllm
+   353s, 94 turns, 0 files changed -> results/custom_task_04_find_bug_opencode-tassan-vllm.json
+
+=== task_05_refactor x opencode-tassan-vllm
+   241s, 114 turns, 0 files changed -> results/custom_task_05_refactor_opencode-tassan-vllm.json
+
+=== Summary
+task_01_add_feature           142s  77 turns  0 files
+task_02_write_test            109s  40 turns  1 files
+task_03_explain_module         66s  48 turns  0 files
+task_04_find_bug              353s  94 turns  0 files
+task_05_refactor              241s  114 turns  0 files
+
+=== task_01_add_feature x claude-tassan-vllm-ctxfix
+   142s, 60 turns, 4 files changed -> results/custom_task_01_add_feature_claude-tassan-vllm-ctxfix.json
+
+=== task_02_write_test x claude-tassan-vllm-ctxfix
+   96s, 33 turns, 1 files changed -> results/custom_task_02_write_test_claude-tassan-vllm-ctxfix.json
+
+=== task_05_refactor x claude-tassan-vllm-ctxfix
+   187s, 76 turns, 5 files changed -> results/custom_task_05_refactor_claude-tassan-vllm-ctxfix.json
+
+=== Summary
+task_01_add_feature           142s  60 turns  4 files
+task_02_write_test             96s  33 turns  1 files
+task_05_refactor              187s  76 turns  5 files

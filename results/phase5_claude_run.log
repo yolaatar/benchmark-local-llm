@@ -1,0 +1,22 @@
+
+=== task_01_add_feature x claude-tassan-vllm
+   363s, 49 turns, 3 files changed, ERROR -> results/custom_task_01_add_feature_claude-tassan-vllm.json
+
+=== task_02_write_test x claude-tassan-vllm
+   304s, 213 turns, 1 files changed, ERROR -> results/custom_task_02_write_test_claude-tassan-vllm.json
+
+=== task_03_explain_module x claude-tassan-vllm
+   20s, 11 turns, 0 files changed -> results/custom_task_03_explain_module_claude-tassan-vllm.json
+
+=== task_04_find_bug x claude-tassan-vllm
+   18s, 16 turns, 1 files changed -> results/custom_task_04_find_bug_claude-tassan-vllm.json
+
+=== task_05_refactor x claude-tassan-vllm
+   167s, 68 turns, 5 files changed, ERROR -> results/custom_task_05_refactor_claude-tassan-vllm.json
+
+=== Summary
+task_01_add_feature           363s  49 turns  3 files
+task_02_write_test            304s  213 turns  1 files
+task_03_explain_module         20s  11 turns  0 files
+task_04_find_bug               18s  16 turns  1 files
+task_05_refactor              167s  68 turns  5 files

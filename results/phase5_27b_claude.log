@@ -1,0 +1,22 @@
+
+=== task_01_add_feature x claude-tassan-27b
+   767s, 39 turns, 3 files changed -> results/custom_task_01_add_feature_claude-tassan-27b.json
+
+=== task_02_write_test x claude-tassan-27b
+   183s, 11 turns, 1 files changed -> results/custom_task_02_write_test_claude-tassan-27b.json
+
+=== task_03_explain_module x claude-tassan-27b
+   114s, 10 turns, 0 files changed -> results/custom_task_03_explain_module_claude-tassan-27b.json
+
+=== task_04_find_bug x claude-tassan-27b
+   252s, 4 turns, 1 files changed -> results/custom_task_04_find_bug_claude-tassan-27b.json
+
+=== task_05_refactor x claude-tassan-27b
+   744s, 46 turns, 5 files changed -> results/custom_task_05_refactor_claude-tassan-27b.json
+
+=== Summary
+task_01_add_feature           766s  39 turns  3 files
+task_02_write_test            182s  11 turns  1 files
+task_03_explain_module        114s  10 turns  0 files
+task_04_find_bug              252s  4 turns  1 files
+task_05_refactor              744s  46 turns  5 files

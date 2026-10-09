@@ -1,0 +1,60 @@
+{
+  "task": "task_04_find_bug",
+  "title": "Missing axonmyelin mask with 3-class models (#1003)",
+  "category": "analyze_code",
+  "mode": "code",
+  "model": "claude-tassan-27b",
+  "runner": "claude (headless) -> tassan vllm",
+  "served_model": "qwen3.6-27b",
+  "repo": "/Users/yolaatar/Developer/ADS/axondeepseg",
+  "base_ref": "bb108a4d980ee3a8171d7e796aca3a4a7ec7b7a9",
+  "prompt": "Bug report: when I segment images with a model that has 3 output classes (axon, myelin and\nunmyelinated axon), the combined `<image>_seg-axonmyelin.png` mask is never written. With the\nusual 2-class models (axon + myelin) it is. The axon and myelin masks themselves are saved fine.\nThis breaks `axondeepseg_morphometrics`, which needs the axonmyelin mask to overlay the index numbers.\n\nFind the root cause, explain it briefly, and fix it with a minimal change.",
+  "elapsed_seconds": 252.1,
+  "timed_out": false,
+  "exit_code": 0,
+  "user_messages": 1,
+  "cost_usd": 0.0,
+  "num_turns": 4,
+  "tool_calls": null,
+  "usage": {
+    "input_tokens": 150277,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 1291,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "",
+    "iterations": [],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "is_error": false,
+  "final_answer": "\n\n**Final summary — two changes in `AxonDeepSeg/apply_model.py`:**\n\n1. **Line 212** (root cause): Changed `['axon', 'myelin'] == output_classes` to `{'axon', 'myelin'}.issubset(output_classes)`. The original exact-match comparison returned `False` for any model with extra classes (like `unmyelinated axon`), so `merge_masks()` was never called and the `_seg-axonmyelin.png` file was never written.\n\n2. **Line 227** (robustness): Changed `new_masks[0], new_masks[1]` to use explicit index lookups by class name. This ensures the correct masks are merged regardless of how the class names sort alphabetically — protects against future models with class names that sort before `'axon'`.",
+  "files_changed": [
+    {
+      "path": "AxonDeepSeg/apply_model.py",
+      "added": "2",
+      "removed": "2"
+    }
+  ],
+  "diff": "diff --git a/AxonDeepSeg/apply_model.py b/AxonDeepSeg/apply_model.py\nindex 0aeabd1..e91a15c 100644\n--- a/AxonDeepSeg/apply_model.py\n+++ b/AxonDeepSeg/apply_model.py\n@@ -209,7 +209,7 @@ def axon_segmentation(\n     output_structure = predictor.dataset_json['labels']\n     output_classes = sorted(list(output_structure.keys()))\n     output_classes.remove('background')\n-    is_axonmyelin_seg = ['axon', 'myelin'] == output_classes\n+    is_axonmyelin_seg = {'axon', 'myelin'}.issubset(output_classes)\n \n     # nnUNet outputs a single file will all classes mapped to consecutive ints\n     for pred_path in output_list:\n@@ -224,6 +224,6 @@ def axon_segmentation(\n         logger.info(f'Successfully saved masks for classes: {output_classes}.')\n \n         if is_axonmyelin_seg:\n-            merge_masks(new_masks[0], new_masks[1])\n+            merge_masks(new_masks[output_classes.index('axon')], new_masks[output_classes.index('myelin')])\n \n         Path(fname).unlink()\n\\ No newline at end of file\n",
+  "review": {
+    "success": null,
+    "notes": ""
+  },
+  "artifacts": {
+    "repo": "/Users/yolaatar/llm-bench-work/task_04_find_bug/claude-tassan-27b/repo",
+    "stdout": "/Users/yolaatar/llm-bench-work/task_04_find_bug/claude-tassan-27b/claude_stdout.json"
+  },
+  "date": "2026-10-08T00:07:27"
+}

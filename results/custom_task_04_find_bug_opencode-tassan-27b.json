@@ -1,0 +1,44 @@
+{
+  "task": "task_04_find_bug",
+  "title": "Missing axonmyelin mask with 3-class models (#1003)",
+  "category": "analyze_code",
+  "mode": "code",
+  "model": "opencode-tassan-27b",
+  "runner": "opencode (headless) -> tassan vllm",
+  "served_model": "qwen3.6-27b",
+  "repo": "/Users/yolaatar/Developer/ADS/axondeepseg",
+  "base_ref": "bb108a4d980ee3a8171d7e796aca3a4a7ec7b7a9",
+  "prompt": "Bug report: when I segment images with a model that has 3 output classes (axon, myelin and\nunmyelinated axon), the combined `<image>_seg-axonmyelin.png` mask is never written. With the\nusual 2-class models (axon + myelin) it is. The axon and myelin masks themselves are saved fine.\nThis breaks `axondeepseg_morphometrics`, which needs the axonmyelin mask to overlay the index numbers.\n\nFind the root cause, explain it briefly, and fix it with a minimal change.",
+  "elapsed_seconds": 217.5,
+  "timed_out": false,
+  "exit_code": 0,
+  "user_messages": 1,
+  "cost_usd": 0.0,
+  "num_turns": 10,
+  "tool_calls": 10,
+  "usage": {
+    "input": 152722,
+    "output": 1617,
+    "reasoning": 1005
+  },
+  "is_error": null,
+  "final_answer": "\n\n---\n\n## Summary\n\n### Root Cause\n\n**File:** `AxonDeepSeg/apply_model.py`, line 212 (original)\n\n```python\nis_axonmyelin_seg = ['axon', 'myelin'] == output_classes\n```\n\nThis uses **exact list equality**. For a 2-class model, `output_classes` is `['axon', 'myelin']` — the check passes and `merge_masks()` runs. For a 3-class model (axon + myelin + unmyelinated axon), `output_classes` is `['axon', 'myelin', 'unmyelinated axon']` — the check fails, so `merge_masks()` is **never called** and the `_seg-axonmyelin.png` file is never written.\n\nAdditionally, the code used a **list** (`new_masks`) indexed by position (`new_masks[0]`, `new_masks[1]`), which only works when axon and myelin are always the first two classes in sorted order.\n\n### Fix (3 changes, all in `apply_model.py`)\n\n1. **Line 212** — Changed exact equality to membership check:\n   ```python\n   # Before\n   is_axonmyelin_seg = ['axon', 'myelin'] == output_classes\n   # After\n   is_axonmyelin_seg = 'axon' in output_classes and 'myelin' in output_classes\n   ```\n\n2. **Line 218** — Changed `new_masks` from a list to a dict keyed by class name:\n   ```python\n   # Before: new_masks = []\n   # After:  new_masks = {}\n   ```\n\n3. **Lines 223, 227** — Use dict lookup by class name instead of positional indexing:\n   ```python\n   # Before: new_masks.append(new_fname) / merge_masks(new_masks[0], new_masks[1])\n   # After:  new_masks[c] = new_fname / merge_masks(new_masks['axon'], new_masks['myelin'])\n   ```\n\nNow the axonmyelin mask is produced whenever both `axon` and `myelin` classes are present in the model output, regardless of how many other classes exist.",
+  "num_events": 39,
+  "files_changed": [
+    {
+      "path": "AxonDeepSeg/apply_model.py",
+      "added": "4",
+      "removed": "4"
+    }
+  ],
+  "diff": "diff --git a/AxonDeepSeg/apply_model.py b/AxonDeepSeg/apply_model.py\nindex 0aeabd1..bcf727c 100644\n--- a/AxonDeepSeg/apply_model.py\n+++ b/AxonDeepSeg/apply_model.py\n@@ -209,21 +209,21 @@ def axon_segmentation(\n     output_structure = predictor.dataset_json['labels']\n     output_classes = sorted(list(output_structure.keys()))\n     output_classes.remove('background')\n-    is_axonmyelin_seg = ['axon', 'myelin'] == output_classes\n+    is_axonmyelin_seg = 'axon' in output_classes and 'myelin' in output_classes\n \n     # nnUNet outputs a single file will all classes mapped to consecutive ints\n     for pred_path in output_list:\n         fname = pred_path + data_format\n         raw_pred = ads_utils.imread(fname)\n-        new_masks = []\n+        new_masks = {}\n \n         for c in output_classes:\n             class_value = output_structure[c]\n             new_fname = extract_from_nnunet_prediction(raw_pred, fname, c, class_value)\n-            new_masks.append(new_fname)\n+            new_masks[c] = new_fname\n         logger.info(f'Successfully saved masks for classes: {output_classes}.')\n \n         if is_axonmyelin_seg:\n-            merge_masks(new_masks[0], new_masks[1])\n+            merge_masks(new_masks['axon'], new_masks['myelin'])\n \n         Path(fname).unlink()\n\\ No newline at end of file\n",
+  "review": {
+    "success": null,
+    "notes": ""
+  },
+  "artifacts": {
+    "repo": "/Users/yolaatar/llm-bench-work/task_04_find_bug/opencode-tassan-27b/repo",
+    "stdout": "/Users/yolaatar/llm-bench-work/task_04_find_bug/opencode-tassan-27b/opencode_stdout.jsonl"
+  },
+  "date": "2026-10-08T00:39:23"
+}

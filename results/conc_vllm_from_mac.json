@@ -1,0 +1,659 @@
+{
+  "config": {
+    "url": "http://127.0.0.1:8001",
+    "api": "openai",
+    "model": "qwen3-coder-next",
+    "users": "1,2,3,4,8",
+    "requests_per_user": 3,
+    "arrival": "burst",
+    "stagger": 1.0,
+    "rate": 0.5,
+    "think_time": 0.0,
+    "prompt_tokens": 1500,
+    "max_tokens": 400,
+    "num_ctx": 8192,
+    "no_think": false,
+    "timeout": 1800,
+    "gpu": false,
+    "gpu_index": null,
+    "label": "vllm-from-mac"
+  },
+  "server": {},
+  "levels": [
+    {
+      "users": 1,
+      "requests": 3,
+      "ok": 3,
+      "errors": 0,
+      "error_samples": [],
+      "wall_s": 8.56,
+      "ttft_p50_s": 0.25704579218290746,
+      "ttft_p95_s": 0.2913377499207854,
+      "ttft_max_s": 0.2913377499207854,
+      "e2e_p50_s": 2.8421679160092026,
+      "e2e_p95_s": 2.87924174987711,
+      "decode_tok_s_per_req_p50": 154.56523889864178,
+      "aggregate_out_tok_s": 140.2,
+      "gpu_mem_peak_mib": null,
+      "gpu_util_mean": null,
+      "records": [
+        {
+          "t_submit": 0.001,
+          "t_first": 0.292,
+          "t_end": 2.88,
+          "out_tokens": 400,
+          "prompt_tokens": 1241,
+          "status": 200,
+          "error": null,
+          "user": 0
+        },
+        {
+          "t_submit": 2.88,
+          "t_first": 3.137,
+          "t_end": 5.715,
+          "out_tokens": 400,
+          "prompt_tokens": 1239,
+          "status": 200,
+          "error": null,
+          "user": 0
+        },
+        {
+          "t_submit": 5.715,
+          "t_first": 5.969,
+          "t_end": 8.557,
+          "out_tokens": 400,
+          "prompt_tokens": 1243,
+          "status": 200,
+          "error": null,
+          "user": 0
+        }
+      ]
+    },
+    {
+      "users": 2,
+      "requests": 6,
+      "ok": 6,
+      "errors": 0,
+      "error_samples": [],
+      "wall_s": 9.73,
+      "ttft_p50_s": 0.3497635000385344,
+      "ttft_p95_s": 0.36032766685821116,
+      "ttft_max_s": 0.36032766685821116,
+      "e2e_p50_s": 3.2288605000358075,
+      "e2e_p95_s": 3.27923437487334,
+      "decode_tok_s_per_req_p50": 138.74361352469373,
+      "aggregate_out_tok_s": 246.8,
+      "gpu_mem_peak_mib": null,
+      "gpu_util_mean": null,
+      "records": [
+        {
+          "t_submit": 0.001,
+          "t_first": 0.359,
+          "t_end": 3.229,
+          "out_tokens": 400,
+          "prompt_tokens": 1239,
+          "status": 200,
+          "error": null,
+          "user": 1
+        },
+        {
+          "t_submit": 0.0,
+          "t_first": 0.359,
+          "t_end": 3.235,
+          "out_tokens": 400,
+          "prompt_tokens": 1240,
+          "status": 200,
+          "error": null,
+          "user": 0
+        },
+        {
+          "t_submit": 3.23,
+          "t_first": 3.58,
+          "t_end": 6.445,
+          "out_tokens": 400,
+          "prompt_tokens": 1243,
+          "status": 200,
+          "error": null,
+          "user": 1
+        },
+        {
+          "t_submit": 3.235,
+          "t_first": 3.58,
+          "t_end": 6.463,
+          "out_tokens": 400,
+          "prompt_tokens": 1239,
+          "status": 200,
+          "error": null,
+          "user": 0
+        },
+        {
+          "t_submit": 6.446,
+          "t_first": 6.806,
+          "t_end": 9.725,
+          "out_tokens": 400,
+          "prompt_tokens": 1244,
+          "status": 200,
+          "error": null,
+          "user": 1
+        },
+        {
+          "t_submit": 6.463,
+          "t_first": 6.806,
+          "t_end": 9.725,
+          "out_tokens": 400,
+          "prompt_tokens": 1243,
+          "status": 200,
+          "error": null,
+          "user": 0
+        }
+      ]
+    },
+    {
+      "users": 3,
+      "requests": 9,
+      "ok": 9,
+      "errors": 0,
+      "error_samples": [],
+      "wall_s": 10.56,
+      "ttft_p50_s": 0.3170337909832597,
+      "ttft_p95_s": 0.35047195781953633,
+      "ttft_max_s": 0.35047195781953633,
+      "e2e_p50_s": 3.512121208012104,
+      "e2e_p95_s": 3.6707854580599815,
+      "decode_tok_s_per_req_p50": 123.55807403867415,
+      "aggregate_out_tok_s": 336.2,
+      "gpu_mem_peak_mib": null,
+      "gpu_util_mean": null,
+      "records": [
+        {
+          "t_submit": 0.0,
+          "t_first": 0.318,
+          "t_end": 3.144,
+          "out_tokens": 363,
+          "prompt_tokens": 1241,
+          "status": 200,
+          "error": null,
+          "user": 0
+        },
+        {
+          "t_submit": 0.001,
+          "t_first": 0.331,
+          "t_end": 3.671,
+          "out_tokens": 400,
+          "prompt_tokens": 1243,
+          "status": 200,
+          "error": null,
+          "user": 2
+        },
+        {
+          "t_submit": 0.001,
+          "t_first": 0.318,
+          "t_end": 3.672,
+          "out_tokens": 400,
+          "prompt_tokens": 1239,
+          "status": 200,
+          "error": null,
+          "user": 1
+        },
+        {
+          "t_submit": 3.144,
+          "t_first": 3.449,
+          "t_end": 6.656,
+          "out_tokens": 400,
+          "prompt_tokens": 1239,
+          "status": 200,
+          "error": null,
+          "user": 0
+        },
+        {
+          "t_submit": 3.672,
+          "t_first": 3.936,
+          "t_end": 7.173,
+          "out_tokens": 400,
+          "prompt_tokens": 1243,
+          "status": 200,
+          "error": null,
+          "user": 1
+        },
+        {
+          "t_submit": 3.671,
+          "t_first": 3.95,
+          "t_end": 7.191,
+          "out_tokens": 400,
+          "prompt_tokens": 1244,
+          "status": 200,
+          "error": null,
+          "user": 2
+        },
+        {
+          "t_submit": 6.656,
+          "t_first": 6.928,
+          "t_end": 10.223,
+          "out_tokens": 400,
+          "prompt_tokens": 1243,
+          "status": 200,
+          "error": null,
+          "user": 0
+        },
+        {
+          "t_submit": 7.191,
+          "t_first": 7.527,
+          "t_end": 10.499,
+          "out_tokens": 387,
+          "prompt_tokens": 1241,
+          "status": 200,
+          "error": null,
+          "user": 2
+        },
+        {
+          "t_submit": 7.173,
+          "t_first": 7.524,
+          "t_end": 10.56,
+          "out_tokens": 400,
+          "prompt_tokens": 1244,
+          "status": 200,
+          "error": null,
+          "user": 1
+        }
+      ]
+    },
+    {
+      "users": 4,
+      "requests": 12,
+      "ok": 12,
+      "errors": 0,
+      "error_samples": [],
+      "wall_s": 11.21,
+      "ttft_p50_s": 0.3200264999177307,
+      "ttft_p95_s": 0.3610442921053618,
+      "ttft_max_s": 0.36699333298020065,
+      "e2e_p50_s": 3.755430541932583,
+      "e2e_p95_s": 4.036438208073378,
+      "decode_tok_s_per_req_p50": 116.43379301628043,
+      "aggregate_out_tok_s": 408.7,
+      "gpu_mem_peak_mib": null,
+      "gpu_util_mean": null,
+      "records": [
+        {
+          "t_submit": 0.0,
+          "t_first": 0.324,
+          "t_end": 2.887,
+          "out_tokens": 313,
+          "prompt_tokens": 1241,
+          "status": 200,
+          "error": null,
+          "user": 0
+        },
+        {
+          "t_submit": 0.0,
+          "t_first": 0.32,
+          "t_end": 3.75,
+          "out_tokens": 400,
+          "prompt_tokens": 1239,
+          "status": 200,
+          "error": null,
+          "user": 1
+        },
+        {
+          "t_submit": 0.001,
+          "t_first": 0.321,
+          "t_end": 3.756,
+          "out_tokens": 400,
+          "prompt_tokens": 1243,
+          "status": 200,
+          "error": null,
+          "user": 2
+        },
+        {
+          "t_submit": 0.001,
+          "t_first": 0.324,
+          "t_end": 3.762,
+          "out_tokens": 400,
+          "prompt_tokens": 1244,
+          "status": 200,
+          "error": null,
+          "user": 3
+        },
+        {
+          "t_submit": 2.888,
+          "t_first": 3.135,
+          "t_end": 6.738,
+          "out_tokens": 400,
+          "prompt_tokens": 1239,
+          "status": 200,
+          "error": null,
+          "user": 0
+        },
+        {
+          "t_submit": 3.763,
+          "t_first": 4.117,
+          "t_end": 7.265,
+          "out_tokens": 363,
+          "prompt_tokens": 1241,
+          "status": 200,
+          "error": null,
+          "user": 3
+        },
+        {
+          "t_submit": 3.75,
+          "t_first": 4.117,
+          "t_end": 7.792,
+          "out_tokens": 400,
+          "prompt_tokens": 1243,
+          "status": 200,
+          "error": null,
+          "user": 1
+        },
+        {
+          "t_submit": 3.756,
+          "t_first": 4.117,
+          "t_end": 7.793,
+          "out_tokens": 400,
+          "prompt_tokens": 1244,
+          "status": 200,
+          "error": null,
+          "user": 2
+        },
+        {
+          "t_submit": 7.793,
+          "t_first": 8.055,
+          "t_end": 10.575,
+          "out_tokens": 307,
+          "prompt_tokens": 1241,
+          "status": 200,
+          "error": null,
+          "user": 2
+        },
+        {
+          "t_submit": 6.738,
+          "t_first": 7.002,
+          "t_end": 10.579,
+          "out_tokens": 400,
+          "prompt_tokens": 1242,
+          "status": 200,
+          "error": null,
+          "user": 0
+        },
+        {
+          "t_submit": 7.266,
+          "t_first": 7.545,
+          "t_end": 10.935,
+          "out_tokens": 400,
+          "prompt_tokens": 1239,
+          "status": 200,
+          "error": null,
+          "user": 3
+        },
+        {
+          "t_submit": 7.792,
+          "t_first": 8.055,
+          "t_end": 11.214,
+          "out_tokens": 400,
+          "prompt_tokens": 1244,
+          "status": 200,
+          "error": null,
+          "user": 1
+        }
+      ]
+    },
+    {
+      "users": 8,
+      "requests": 24,
+      "ok": 24,
+      "errors": 0,
+      "error_samples": [],
+      "wall_s": 13.75,
+      "ttft_p50_s": 0.41824154183268547,
+      "ttft_p95_s": 0.42965908301994205,
+      "ttft_max_s": 0.4296699168626219,
+      "e2e_p50_s": 4.696331583894789,
+      "e2e_p95_s": 4.885460125049576,
+      "decode_tok_s_per_req_p50": 93.70047875082847,
+      "aggregate_out_tok_s": 667.6,
+      "gpu_mem_peak_mib": null,
+      "gpu_util_mean": null,
+      "records": [
+        {
+          "t_submit": 0.0,
+          "t_first": 0.43,
+          "t_end": 3.167,
+          "out_tokens": 282,
+          "prompt_tokens": 1241,
+          "status": 200,
+          "error": null,
+          "user": 0
+        },
+        {
+          "t_submit": 0.002,
+          "t_first": 0.43,
+          "t_end": 3.73,
+          "out_tokens": 320,
+          "prompt_tokens": 1241,
+          "status": 200,
+          "error": null,
+          "user": 4
+        },
+        {
+          "t_submit": 0.001,
+          "t_first": 0.43,
+          "t_end": 4.697,
+          "out_tokens": 400,
+          "prompt_tokens": 1239,
+          "status": 200,
+          "error": null,
+          "user": 1
+        },
+        {
+          "t_submit": 0.001,
+          "t_first": 0.43,
+          "t_end": 4.699,
+          "out_tokens": 400,
+          "prompt_tokens": 1243,
+          "status": 200,
+          "error": null,
+          "user": 2
+        },
+        {
+          "t_submit": 0.002,
+          "t_first": 0.431,
+          "t_end": 4.699,
+          "out_tokens": 400,
+          "prompt_tokens": 1239,
+          "status": 200,
+          "error": null,
+          "user": 5
+        },
+        {
+          "t_submit": 0.001,
+          "t_first": 0.431,
+          "t_end": 4.7,
+          "out_tokens": 400,
+          "prompt_tokens": 1244,
+          "status": 200,
+          "error": null,
+          "user": 3
+        },
+        {
+          "t_submit": 0.002,
+          "t_first": 0.432,
+          "t_end": 4.7,
+          "out_tokens": 400,
+          "prompt_tokens": 1243,
+          "status": 200,
+          "error": null,
+          "user": 6
+        },
+        {
+          "t_submit": 0.002,
+          "t_first": 0.432,
+          "t_end": 4.704,
+          "out_tokens": 400,
+          "prompt_tokens": 1244,
+          "status": 200,
+          "error": null,
+          "user": 7
+        },
+        {
+          "t_submit": 3.167,
+          "t_first": 3.44,
+          "t_end": 7.852,
+          "out_tokens": 400,
+          "prompt_tokens": 1239,
+          "status": 200,
+          "error": null,
+          "user": 0
+        },
+        {
+          "t_submit": 3.73,
+          "t_first": 3.993,
+          "t_end": 8.423,
+          "out_tokens": 400,
+          "prompt_tokens": 1239,
+          "status": 200,
+          "error": null,
+          "user": 4
+        },
+        {
+          "t_submit": 4.699,
+          "t_first": 5.11,
+          "t_end": 9.25,
+          "out_tokens": 384,
+          "prompt_tokens": 1243,
+          "status": 200,
+          "error": null,
+          "user": 2
+        },
+        {
+          "t_submit": 4.697,
+          "t_first": 5.11,
+          "t_end": 9.576,
+          "out_tokens": 400,
+          "prompt_tokens": 1243,
+          "status": 200,
+          "error": null,
+          "user": 1
+        },
+        {
+          "t_submit": 4.699,
+          "t_first": 5.11,
+          "t_end": 9.585,
+          "out_tokens": 400,
+          "prompt_tokens": 1243,
+          "status": 200,
+          "error": null,
+          "user": 5
+        },
+        {
+          "t_submit": 4.7,
+          "t_first": 5.11,
+          "t_end": 9.585,
+          "out_tokens": 400,
+          "prompt_tokens": 1244,
+          "status": 200,
+          "error": null,
+          "user": 6
+        },
+        {
+          "t_submit": 4.704,
+          "t_first": 5.115,
+          "t_end": 9.585,
+          "out_tokens": 400,
+          "prompt_tokens": 1241,
+          "status": 200,
+          "error": null,
+          "user": 7
+        },
+        {
+          "t_submit": 4.7,
+          "t_first": 5.11,
+          "t_end": 9.586,
+          "out_tokens": 400,
+          "prompt_tokens": 1240,
+          "status": 200,
+          "error": null,
+          "user": 3
+        },
+        {
+          "t_submit": 9.251,
+          "t_first": 9.536,
+          "t_end": 12.308,
+          "out_tokens": 262,
+          "prompt_tokens": 1241,
+          "status": 200,
+          "error": null,
+          "user": 2
+        },
+        {
+          "t_submit": 7.852,
+          "t_first": 8.122,
+          "t_end": 12.592,
+          "out_tokens": 400,
+          "prompt_tokens": 1243,
+          "status": 200,
+          "error": null,
+          "user": 0
+        },
+        {
+          "t_submit": 8.424,
+          "t_first": 8.688,
+          "t_end": 12.957,
+          "out_tokens": 400,
+          "prompt_tokens": 1243,
+          "status": 200,
+          "error": null,
+          "user": 4
+        },
+        {
+          "t_submit": 9.585,
+          "t_first": 10.003,
+          "t_end": 13.148,
+          "out_tokens": 328,
+          "prompt_tokens": 1241,
+          "status": 200,
+          "error": null,
+          "user": 6
+        },
+        {
+          "t_submit": 9.585,
+          "t_first": 10.003,
+          "t_end": 13.743,
+          "out_tokens": 400,
+          "prompt_tokens": 1244,
+          "status": 200,
+          "error": null,
+          "user": 5
+        },
+        {
+          "t_submit": 9.577,
+          "t_first": 10.003,
+          "t_end": 13.744,
+          "out_tokens": 400,
+          "prompt_tokens": 1244,
+          "status": 200,
+          "error": null,
+          "user": 1
+        },
+        {
+          "t_submit": 9.585,
+          "t_first": 10.004,
+          "t_end": 13.744,
+          "out_tokens": 400,
+          "prompt_tokens": 1239,
+          "status": 200,
+          "error": null,
+          "user": 7
+        },
+        {
+          "t_submit": 9.586,
+          "t_first": 10.009,
+          "t_end": 13.745,
+          "out_tokens": 400,
+          "prompt_tokens": 1239,
+          "status": 200,
+          "error": null,
+          "user": 3
+        }
+      ]
+    }
+  ]
+}
