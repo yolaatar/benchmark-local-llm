@@ -3,7 +3,7 @@
   Through the open tunnel: check which tassan server answers, and that the model makes a real tool call.
 
 .EXAMPLE
-  .\check-tassan.ps1                  # vLLM (needs $env:TASSAN_VLLM_KEY)
+  .\check-tassan.ps1                  # vLLM (key in ~\.tassan_vllm_key or $env:TASSAN_VLLM_KEY)
   .\check-tassan.ps1 -Backend ollama
 #>
 param(
@@ -12,17 +12,9 @@ param(
 )
 
 $ErrorActionPreference = 'Stop'
-if ($Backend -eq 'vllm') {
-    $base = 'http://127.0.0.1:8001/v1'; $model = 'qwen3-coder-next'; $key = $env:TASSAN_VLLM_KEY
-    if (-not $key) { throw 'Set $env:TASSAN_VLLM_KEY first (content of ~/llm-bench/vllm.key on tassan).' }
-} else {
-    $base = 'http://127.0.0.1:11435/v1'; $model = 'qwen3-coder-next-cc'; $key = 'ollama'
-}
-$headers = @{ Authorization = "Bearer $key" }
-
-try { $models = Invoke-RestMethod "$base/models" -Headers $headers -TimeoutSec 10 }
-catch { throw "No answer from $base. Is the tunnel open and the $Backend server running on tassan? ($($_.Exception.Message))" }
-Write-Host "Models: $(($models.data | ForEach-Object { $_.id }) -join ', ')" -ForegroundColor Green
+. (Join-Path $PSScriptRoot 'tassan_lib.ps1')
+$headers = @{ Authorization = "Bearer $token" }
+Write-Host "Server answers, model: $model" -ForegroundColor Green
 
 # Tool-calling smoke test: a usable agent model answers with a structured call, not with prose.
 $body = @{
@@ -36,10 +28,10 @@ $body = @{
             parameters  = @{ type = 'object'; properties = @{ path = @{ type = 'string' } }; required = @('path') }
         }
     })
-    max_tokens = 200
+    max_tokens = 2000   # room for a thinking model to reason before the call
 } | ConvertTo-Json -Depth 10
 $sw = [Diagnostics.Stopwatch]::StartNew()
-$r = Invoke-RestMethod "$base/chat/completions" -Method Post -Headers $headers -ContentType 'application/json' -Body $body -TimeoutSec 600
+$r = Invoke-RestMethod "$base/v1/chat/completions" -Method Post -Headers $headers -ContentType 'application/json' -Body $body -TimeoutSec 600
 $call = $r.choices[0].message.tool_calls
 if ($call) {
     Write-Host ("Tool call OK in {0:N1} s: {1}({2})" -f $sw.Elapsed.TotalSeconds, $call[0].function.name, $call[0].function.arguments) -ForegroundColor Green

@@ -31,6 +31,10 @@
         "qwen3-coder-next": {
           "name": "Qwen3-Coder-Next 80B (tassan, vLLM)",
           "limit": { "context": 131072, "output": 16384 }
+        },
+        "qwen3.6-27b": {
+          "name": "Qwen3.6-27B (tassan, vLLM, thinking)",
+          "limit": { "context": 131072, "output": 16384 }
         }
       }
     },

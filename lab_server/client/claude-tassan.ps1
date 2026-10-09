@@ -7,7 +7,7 @@
   plain `claude` stays on the normal Anthropic backend. vLLM and Ollama both speak the Anthropic API.
 
 .EXAMPLE
-  .\claude-tassan.ps1                       # vLLM, needs $env:TASSAN_VLLM_KEY
+  .\claude-tassan.ps1                       # vLLM (key in ~\.tassan_vllm_key or $env:TASSAN_VLLM_KEY)
   .\claude-tassan.ps1 -Backend ollama
   .\claude-tassan.ps1 -- -p "explain this repo"   # put -- before any dash option meant for claude
 #>
@@ -20,12 +20,7 @@ param(
 )
 
 $ErrorActionPreference = 'Stop'
-if ($Backend -eq 'vllm') {
-    if (-not $env:TASSAN_VLLM_KEY) { throw 'Set $env:TASSAN_VLLM_KEY first (content of ~/llm-bench/vllm.key on tassan).' }
-    $base = 'http://127.0.0.1:8001'; $token = $env:TASSAN_VLLM_KEY; $model = 'qwen3-coder-next'
-} else {
-    $base = 'http://127.0.0.1:11435'; $token = 'ollama'; $model = 'qwen3-coder-next-cc'
-}
+. (Join-Path $PSScriptRoot 'tassan_lib.ps1')
 
 $vars = [ordered]@{
     ANTHROPIC_BASE_URL                       = $base
@@ -38,6 +33,10 @@ $vars = [ordered]@{
     CLAUDE_CODE_SUBAGENT_MODEL               = $model
     CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC = '1'
     CLAUDE_CODE_ATTRIBUTION_HEADER           = '0'     # keeps vLLM prefix caching effective
+    # the server's window (MAX_MODEL_LEN): else Claude Code reserves 32k output and never compacts
+    CLAUDE_CODE_MAX_CONTEXT_TOKENS           = "$window"
+    CLAUDE_CODE_AUTO_COMPACT_WINDOW          = "$window"
+    CLAUDE_CODE_MAX_OUTPUT_TOKENS            = '16384'
 }
 
 $saved = @{}

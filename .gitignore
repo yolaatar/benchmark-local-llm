@@ -6,3 +6,4 @@ work/
 work_benchmark/
 *.key
 .venv.*/
+.claude/

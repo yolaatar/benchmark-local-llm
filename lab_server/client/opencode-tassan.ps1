@@ -23,10 +23,13 @@ param(
 $ErrorActionPreference = 'Stop'
 $here = Split-Path -Parent $MyInvocation.MyCommand.Path
 if (-not (Get-Command opencode -ErrorAction SilentlyContinue)) { throw 'OpenCode is not installed: npm install -g opencode-ai' }
-if ($Backend -eq 'vllm' -and -not $env:TASSAN_VLLM_KEY) {
-    throw 'Set $env:TASSAN_VLLM_KEY first (content of ~/llm-bench/vllm.key on tassan).'
+. (Join-Path $here 'tassan_lib.ps1')
+$provider = if ($Backend -eq 'vllm') { 'tassan' } else { 'tassan-ollama' }
+if (-not (Select-String -Quiet -SimpleMatch "`"$model`"" (Join-Path $here 'opencode.json'))) {
+    Write-Warning "$model is not listed in opencode.json, add it there (copy an existing model entry)."
 }
-$model = if ($Backend -eq 'vllm') { 'tassan/qwen3-coder-next' } else { 'tassan-ollama/qwen3-coder-next-cc' }
+$model = "$provider/$model"
+$env:TASSAN_VLLM_KEY = $token   # opencode.json reads it
 
 $saved = $env:OPENCODE_CONFIG
 $env:OPENCODE_CONFIG = Join-Path $here 'opencode.json'

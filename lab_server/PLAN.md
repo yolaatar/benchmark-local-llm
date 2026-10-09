@@ -8,13 +8,14 @@ lab_server/
   PLAN.md                this runbook
   USER_GUIDE.md          one page for lab members
   cluster/               copied to tassan:~/llm-bench/lab_server/ by deploy-tassan.ps1
-    vllm.env             model, GPU, port, limits (edit here, nothing else)
-    preflight.sh         read-only check: tools, card 0 free, disk, network, running servers
-    serve_ollama.sh      start the round-2 Ollama in tmux "ollama" on card 0 (+ 64k "-cc" variant)
+    vllm.env             model, GPU (card 1), set_slot command, port, limits (edit here, nothing else)
+    tmux_lib.sh          start/stop a server in its own tmux session (set_slot first, session closes with the server)
+    preflight.sh         read-only check: tools, set_slot, our card free, disk, network, running servers
+    serve_ollama.sh      start the round-2 Ollama in tmux "ollama" on our card (+ 64k "-cc" variant)
     stop_ollama.sh       stop it
     setup_vllm.sh        one-time: uv + vLLM venv + weights + API key
     serve_vllm.sh        start in tmux "vllm", wait until it answers
-    stop_vllm.sh         stop, give the card back
+    stop_vllm.sh         stop, close the tmux session, kill leftovers, give the card back
     status.sh            servers, GPU memory, live running/waiting requests
     run_concurrency.sh   Phase 3 sweep: vLLM, then Ollama NUM_PARALLEL=1 and 4
   client/                on each Windows laptop
@@ -30,9 +31,11 @@ lab_server/
 ../run_tassan_tasks.py   Phase 5: the 5 ADS tasks with OpenCode or Claude Code on the tassan model
 ```
 
+Card and tmux: everything runs on GPU 1 (`GPU=1` in `vllm.env`). Each server gets its own tmux session in which the scripts type `set_slot 1; exit` (set_slot opens a new shell confined to slot 1: ~46 GB RAM, 20 cores), then, in that shell, check the slot, export `CUDA_VISIBLE_DEVICES=1` (set_slot doesn't), activate the venv and `exec` the server. So the session closes by itself when the server stops. Lab rules: https://intranet.neuro.polymtl.ca/computing-resources/neuropoly/resource-sharing.html (book `gpu[1]` on the lab calendar). The stop scripts also kill leftover processes. Setup and benchmark sessions close when the script ends; output stays in `~/llm-bench/logs/`.
+
 Ports: tassan vLLM `127.0.0.1:8000` -> laptop `127.0.0.1:8001`; tassan Ollama `127.0.0.1:11434` -> laptop `127.0.0.1:11435`.
 
-Checked on the laptop only (2026-10-07): shell scripts pass `bash -n`, PowerShell scripts parse, `check-tassan.ps1` against a mock server, OpenCode 1.18.35 loads both configs and lists only the tassan models, `opencode run --format json` against a mock server produces the events `run_tassan_tasks.py` parses (tool calls, text, tokens per step). **Nothing has run on tassan yet.**
+Status (2026-10-09): Phases 0 to 2 and 5 done, from a Mac. vLLM 0.31.0 runs on tassan GPU 1, first with Qwen3-Coder-Next 80B NVFP4, now Qwen3.6-27B FP8 (better on the 5 ADS tasks, about 3x slower per user, still fine with 8 users). Claude Code and OpenCode both work through the tunnel. Phase 3 (full sweep on tassan) and Phase 4 (lab decisions) are open. Day-to-day operation: `ADMIN_GUIDE.md`; for lab members: `USER_GUIDE.md`.
 
 ---
 
@@ -54,7 +57,7 @@ On tassan:
 cd ~/llm-bench/lab_server && bash preflight.sh
 ```
 
-**Checkpoint 0:** no `[WARN]` that matters (card 0 idle, disk room, huggingface.co and pypi.org reachable).
+**Checkpoint 0:** no `[WARN]` that matters (`set_slot` found, card 1 idle, disk room, huggingface.co and pypi.org reachable).
 
 ## Phase 1: agents on the Ollama server that already exists (20 min)
 
@@ -76,8 +79,8 @@ On tassan (run setup inside tmux so a dropped SSH doesn't kill the download):
 
 ```bash
 cd ~/llm-bench/lab_server
-bash stop_ollama.sh                  # frees card 0 (serve_vllm.sh refuses to start otherwise)
-tmux new -s setup 'bash setup_vllm.sh; read'   # uv, vLLM venv (~10 GB), weights (~45 GB), API key
+bash stop_ollama.sh                  # frees the card (serve_vllm.sh refuses to start otherwise)
+tmux new -s setup 'bash setup_vllm.sh 2>&1 | tee -a ~/llm-bench/logs/setup.log'   # uv, vLLM venv (~10 GB), weights (~45 GB), API key
 bash serve_vllm.sh                   # waits until the server answers (first start: several minutes)
 bash status.sh
 cat ~/llm-bench/vllm.key             # copy it for the laptop
@@ -104,10 +107,10 @@ Troubleshooting:
 All on tassan, so network latency is out of the picture. Same prompts and sizes for every run.
 
 ```bash
-tmux new -s conc 'bash ~/llm-bench/lab_server/run_concurrency.sh; read'
+tmux new -s conc 'bash ~/llm-bench/lab_server/run_concurrency.sh 2>&1 | tee -a ~/llm-bench/logs/concurrency.log'
 ```
 
-It runs vLLM (1 to 16 simultaneous users, then 8 users with random arrivals), then Ollama with `NUM_PARALLEL=1` and `4`, and leaves card 0 free at the end. Single parts: `run_concurrency.sh vllm` or `run_concurrency.sh ollama`. If Ollama can't fit 4 x 64k with `NUM_PARALLEL=4` (it says so in `~/llm-bench/logs/ollama.log`): `NUM_CTX=32768 bash run_concurrency.sh ollama`.
+It runs vLLM (1 to 16 simultaneous users, then 8 users with random arrivals), then Ollama with `NUM_PARALLEL=1` and `4`, and leaves the card free at the end, including if it is interrupted or fails. Single parts: `run_concurrency.sh vllm` or `run_concurrency.sh ollama`. If Ollama can't fit 4 x 64k with `NUM_PARALLEL=4` (it says so in `~/llm-bench/logs/ollama.log`): `NUM_CTX=32768 bash run_concurrency.sh ollama`.
 
 Back on the laptop: `.\deploy-tassan.ps1 -Fetch` (copies `conc_*.json` into `results\`).
 
@@ -116,7 +119,7 @@ Back on the laptop: `.\deploy-tassan.ps1 -Fetch` (copies `conc_*.json` into `res
 ## Phase 4: open it to the lab
 
 Decisions to take with the lab first (not technical):
-- Who owns the server, and whether it runs permanently on card 0 or on demand (and who stops it).
+- Who owns the server, and whether it runs permanently on card 1 or on demand (and who stops it).
 - Which model: the 80B coder (default) or Qwen3.6-35B-A3B (smaller, leaves the card mostly free, thinking model).
 - Key policy: one shared key (simple, current scripts) or per-user keys (Phase 6).
 

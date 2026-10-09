@@ -10,7 +10,7 @@
 
 .EXAMPLE
   .\smoke-test.ps1 -Backend ollama      # Phase 1
-  .\smoke-test.ps1                      # Phase 2, vLLM (needs $env:TASSAN_VLLM_KEY)
+  .\smoke-test.ps1                      # Phase 2, vLLM (key in ~\.tassan_vllm_key or $env:TASSAN_VLLM_KEY)
   .\smoke-test.ps1 -Only opencode
 #>
 param(
@@ -38,7 +38,9 @@ try {
     git add stats.py; git -c user.name=smoke -c user.email=smoke@local commit -qm init
 
     if ($Only -in 'both', 'opencode') {
-        $model = if ($Backend -eq 'vllm') { 'tassan/qwen3-coder-next' } else { 'tassan-ollama/qwen3-coder-next-cc' }
+        . (Join-Path $here 'tassan_lib.ps1')   # $model = what the server serves
+        $model = if ($Backend -eq 'vllm') { "tassan/$model" } else { "tassan-ollama/$model" }
+        $env:TASSAN_VLLM_KEY = $token
         $saved = $env:OPENCODE_CONFIG
         $env:OPENCODE_CONFIG = Join-Path $here 'opencode.bench.json'
         Write-Host "`n== OpenCode ($model): add median" -ForegroundColor Cyan
