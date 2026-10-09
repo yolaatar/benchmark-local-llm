@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
-# Start the Ollama server installed in round 2 (~/llm-bench) in tmux "ollama", pinned to our card,
+# Start the Ollama server installed in round 2 (~/llm-bench) in tmux "ollama", pinned to card $GPU,
 # and make sure the 64k-context variant used by the agents exists.
 # Usage: bash serve_ollama.sh [NUM_PARALLEL]      (default 1; Phase 3 also runs it with 4)
 set -euo pipefail
 HERE=$(cd "$(dirname "$0")" && pwd)
 source "$HERE/vllm.env"
+source "$HERE/tmux_lib.sh"
 PARALLEL=${1:-1}
 BASE_MODEL=${OLLAMA_MODEL:-qwen3-coder-next}
 CC_MODEL=$BASE_MODEL-cc
@@ -22,14 +23,16 @@ else
     fi
     echo "=== $(date -Is) start ollama NUM_PARALLEL=$PARALLEL on GPU $GPU" >> "$LOG"
     # OLLAMA_VULKAN=0: otherwise Ollama also sees the other card through Vulkan
-    tmux new-session -d -s ollama "source $LLMBENCH/env.sh; export CUDA_VISIBLE_DEVICES=$GPU OLLAMA_VULKAN=0 \
-OLLAMA_HOST=127.0.0.1:11434 OLLAMA_NUM_PARALLEL=$PARALLEL; exec ollama serve 2>&1 | tee -a $LOG"
+    start_session ollama "$LOG" "source $LLMBENCH/env.sh; export CUDA_VISIBLE_DEVICES=$GPU \
+CUDA_DEVICE_ORDER=PCI_BUS_ID OLLAMA_VULKAN=0 OLLAMA_HOST=127.0.0.1:11434 OLLAMA_NUM_PARALLEL=$PARALLEL; exec ollama serve"
+    trap 'echo; echo "interrupted, stopping Ollama"; bash "$HERE/stop_ollama.sh"; exit 130' INT TERM
     for i in $(seq 1 30); do
         curl -sf http://127.0.0.1:11434/api/version >/dev/null && break
-        tmux has-session -t ollama 2>/dev/null || { echo "Ollama exited:"; tail -n 20 "$LOG"; exit 1; }
+        tmux has-session -t ollama 2>/dev/null || { echo "Ollama exited (session closed):"; tail -n 20 "$LOG"; exit 1; }
         sleep 1
     done
-    curl -sf http://127.0.0.1:11434/api/version >/dev/null || { echo "Ollama not answering, see $LOG"; exit 1; }
+    curl -sf http://127.0.0.1:11434/api/version >/dev/null || { echo "Ollama not answering, see $LOG"; bash "$HERE/stop_ollama.sh"; exit 1; }
+    trap - INT TERM
     echo "Ollama up on 127.0.0.1:11434, NUM_PARALLEL=$PARALLEL"
 fi
 

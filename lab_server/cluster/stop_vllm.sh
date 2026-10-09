@@ -1,10 +1,8 @@
 #!/usr/bin/env bash
-# Stop the vLLM server and give the GPU memory back.
-SESSION=vllm
-if ! tmux has-session -t "$SESSION" 2>/dev/null; then echo "vLLM is not running"; exit 0; fi
-tmux send-keys -t "$SESSION" C-c
-for i in $(seq 1 30); do
-    tmux has-session -t "$SESSION" 2>/dev/null || { echo "vLLM stopped"; exit 0; }
-    sleep 1
-done
-tmux kill-session -t "$SESSION" && echo "vLLM killed"
+# Stop the vLLM server, close its tmux session, and make sure no vLLM process still holds the GPU.
+HERE=$(cd "$(dirname "$0")" && pwd)
+source "$HERE/vllm.env"
+source "$HERE/tmux_lib.sh"
+stop_session vllm 'vllm serve|VLLM::EngineCore'
+echo "vLLM stopped. GPU $GPU:"
+nvidia-smi -i "$GPU" --query-gpu=index,memory.used,memory.total --format=csv,noheader

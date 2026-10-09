@@ -18,6 +18,22 @@ if [ ! -x "$VENV/bin/vllm" ]; then
     uv venv --python 3.12 "$VENV"
     uv pip install --python "$VENV/bin/python" "vllm${VLLM_VERSION:+==$VLLM_VERSION}" --torch-backend=auto
 fi
+# FlashInfer JIT-compiles its Blackwell kernels with the venv's CUDA compiler (serve_vllm.sh sets CUDA_HOME).
+# The whole compiler (nvcc + ptxas, crt headers, cicc in nvidia-nvvm) must match the CUDA runtime torch
+# was built with, else "CUDA compiler and CUDA toolkit headers are incompatible" or ptxas "Unsupported
+# .version". pip tends to pull newer compiler packages: align each one to the runtime.
+cuda_ver() { uv pip show --python "$VENV/bin/python" "$1" 2>/dev/null | sed -n 's/^Version: \([0-9]*\.[0-9]*\).*/\1/p'; }
+RT=$(cuda_ver nvidia-cuda-runtime)
+FIX=()
+for pkg in nvidia-cuda-nvcc nvidia-cuda-crt nvidia-nvvm; do
+    v=$(cuda_ver "$pkg")
+    [ -n "$RT" ] && [ -n "$v" ] && [ "$v" != "$RT" ] && FIX+=("$pkg==$RT.*") && echo "== $pkg $v does not match CUDA runtime $RT"
+done
+if [ ${#FIX[@]} -gt 0 ]; then
+    uv pip install --python "$VENV/bin/python" "${FIX[@]}"
+    rm -rf "$HOME/.cache/flashinfer"   # kernels built by the previous compiler
+fi
+for pkg in nvidia-cuda-runtime nvidia-cuda-nvcc nvidia-cuda-crt nvidia-nvvm; do echo "  $pkg $(cuda_ver "$pkg")"; done
 "$VENV/bin/python" -c "import vllm, torch; print('vllm', vllm.__version__, '| torch', torch.__version__, '| cuda ok:', torch.cuda.is_available())"
 
 echo "== downloading $MODEL into $HF_HOME"

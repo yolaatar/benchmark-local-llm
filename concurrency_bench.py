@@ -109,7 +109,8 @@ def stream_request(args, prompt):
                 else:
                     for c in msg.get("choices", []):
                         d = c.get("delta", {})
-                        if d.get("content") or d.get("reasoning_content"):
+                        # thinking models: recent vLLM streams it as "reasoning", older as "reasoning_content"
+                        if d.get("content") or d.get("reasoning") or d.get("reasoning_content"):
                             chunks += 1
                             if rec["t_first"] is None:
                                 rec["t_first"] = time.perf_counter()
@@ -130,8 +131,9 @@ def stream_request(args, prompt):
 class GpuSampler(threading.Thread):
     """Peak VRAM and mean utilization from nvidia-smi while a level runs."""
 
-    def __init__(self):
+    def __init__(self, index=None):
         super().__init__(daemon=True)
+        self.index = index
         self.stop_evt = threading.Event()
         self.mem_peak = 0
         self.util = []
@@ -141,7 +143,8 @@ class GpuSampler(threading.Thread):
             try:
                 out = subprocess.run(
                     ["nvidia-smi", "--query-gpu=memory.used,utilization.gpu",
-                     "--format=csv,noheader,nounits"],
+                     "--format=csv,noheader,nounits"]
+                    + (["-i", str(self.index)] if self.index is not None else []),
                     capture_output=True, text=True, timeout=5,
                 ).stdout.strip().splitlines()
                 mem = sum(int(l.split(",")[0]) for l in out)
@@ -177,7 +180,7 @@ def run_level(args, n_users):
             if args.think_time:
                 time.sleep(random.expovariate(1 / args.think_time))
 
-    gpu = GpuSampler() if args.gpu else None
+    gpu = GpuSampler(args.gpu_index) if args.gpu else None
     if gpu:
         gpu.start()
     threads = [threading.Thread(target=user_loop, args=(u,)) for u in range(n_users)]
@@ -251,6 +254,8 @@ def main():
     ap.add_argument("--no-think", action="store_true", help="disable reasoning for thinking models (Ollama)")
     ap.add_argument("--timeout", type=float, default=1800)
     ap.add_argument("--gpu", action="store_true", help="sample nvidia-smi during each level")
+    ap.add_argument("--gpu-index", type=int, default=None,
+                    help="only sample this card (nvidia-smi index); default: all cards summed")
     ap.add_argument("--label", default="", help="free text stored in the output, e.g. 'NUM_PARALLEL=4'")
     ap.add_argument("--out", default=None)
     args = ap.parse_args()
@@ -280,7 +285,7 @@ def main():
         f"concurrency_{args.model.replace('/', '_').replace(':', '-')}"
         f"{'_' + args.label.replace('=', '').replace(' ', '_') if args.label else ''}.json")
     out.parent.mkdir(parents=True, exist_ok=True)
-    cfg = {k: v for k, v in vars(args).items() if k != "out"}
+    cfg = {k: v for k, v in vars(args).items() if k not in ("out", "api_key")}   # never save the key
     out.write_text(json.dumps({"config": cfg, "server": info, "levels": results}, indent=1))
     print(f"\nsaved {out}")
 

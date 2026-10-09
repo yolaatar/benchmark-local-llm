@@ -15,6 +15,16 @@ OUT=$LLMBENCH/results
 mkdir -p "$OUT"
 [ -f "$LLMBENCH/concurrency_bench.py" ] || { echo "missing $LLMBENCH/concurrency_bench.py, run deploy-tassan.ps1"; exit 1; }
 
+# Whatever happens (Ctrl+C, an error, a dropped SSH), stop the servers this run started and close
+# their tmux sessions. Only a completed "vllm" run leaves vLLM up, on purpose.
+KEEP_VLLM=0
+cleanup() {
+    [ "$KEEP_VLLM" = 1 ] || bash "$HERE/stop_vllm.sh"
+    bash "$HERE/stop_ollama.sh"
+}
+trap cleanup EXIT
+trap 'exit 130' INT TERM HUP
+
 vllm_up() { curl -sf -H "Authorization: Bearer $(cat "$LLMBENCH/vllm.key")" "http://127.0.0.1:$PORT/v1/models" -o /dev/null; }
 
 run_vllm() {
@@ -23,11 +33,11 @@ run_vllm() {
     local key; key=$(cat "$LLMBENCH/vllm.key")
     echo "##### vLLM burst sweep ($LEVELS users)"
     $BENCH --api openai --url "http://127.0.0.1:$PORT" --api-key "$key" --model "$SERVED_NAME" \
-        --users "$LEVELS" --gpu --label vllm --out "$OUT/conc_vllm.json"
+        --users "$LEVELS" --gpu --gpu-index "$GPU" --label vllm --out "$OUT/conc_vllm.json"
     echo "##### vLLM realistic arrivals (8 users, poisson)"
     $BENCH --api openai --url "http://127.0.0.1:$PORT" --api-key "$key" --model "$SERVED_NAME" \
         --users 8 --arrival poisson --rate 0.5 --think-time 10 --requests-per-user 4 \
-        --gpu --label vllm-poisson --out "$OUT/conc_vllm_poisson.json"
+        --gpu --gpu-index "$GPU" --label vllm-poisson --out "$OUT/conc_vllm_poisson.json"
 }
 
 run_ollama() {
@@ -37,16 +47,16 @@ run_ollama() {
         bash "$HERE/serve_ollama.sh" "$P"
         echo "##### Ollama NUM_PARALLEL=$P ($LEVELS users, num_ctx $NUM_CTX)"
         $BENCH --model "$OLLAMA_MODEL" --num-ctx "$NUM_CTX" --users "$LEVELS" \
-            --gpu --label "ollama-p$P" --out "$OUT/conc_ollama_p$P.json"
+            --gpu --gpu-index "$GPU" --label "ollama-p$P" --out "$OUT/conc_ollama_p$P.json"
     done
     bash "$HERE/stop_ollama.sh"
 }
 
 case $WHAT in
-    vllm) run_vllm ;;
+    vllm) run_vllm; KEEP_VLLM=1 ;;
     ollama) run_ollama ;;
     all) run_vllm; run_ollama ;;
     *) echo "usage: $0 [all|vllm|ollama]"; exit 1 ;;
 esac
-echo "Done. Card $GPU is free again unless vLLM was left running. Results:"
+echo "Done. Results:"
 ls -l "$OUT"/conc_*.json

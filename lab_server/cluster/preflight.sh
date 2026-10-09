@@ -10,6 +10,11 @@ echo "== tools"
 for t in tmux curl python3 nvidia-smi; do
     command -v "$t" >/dev/null && ok "$t" || warn "$t missing"
 done
+# tmux opens a login shell, so that is where set_slot must exist.
+slot=${SLOT_CMD%% *}
+if [ -z "$slot" ]; then echo "  [--]   no SLOT_CMD in vllm.env"
+elif bash -lic "type $slot" >/dev/null 2>&1; then ok "$slot available in a login shell (vllm.env runs: $SLOT_CMD)"
+else warn "$slot not found in a login shell: servers would refuse to start. Fix SLOT_CMD in vllm.env"; fi
 [ -f "$LLMBENCH/env.sh" ] && ok "Ollama env ($LLMBENCH/env.sh)" || warn "no $LLMBENCH/env.sh: Ollama from round 2 not found (only needed for Phase 1 and 3)"
 [ -x "$LLMBENCH/vllm-venv/bin/vllm" ] && ok "vLLM installed" || echo "  [--]   vLLM not installed yet (setup_vllm.sh)"
 [ -f "$LLMBENCH/concurrency_bench.py" ] && ok "concurrency_bench.py" || warn "concurrency_bench.py missing (deploy-tassan.ps1 copies it)"
@@ -31,4 +36,6 @@ curl -sfI https://pypi.org -o /dev/null --max-time 10 && ok "pypi.org reachable"
 
 echo "== servers"
 tmux ls 2>/dev/null | sed 's/^/  tmux: /' || echo "  no tmux sessions"
+left=$(pgrep -a -u "$USER" -f 'vllm serve|VLLM::EngineCore|ollama (serve|runner)')
+[ -n "$left" ] && { warn "server processes of ours still running (stop_vllm.sh / stop_ollama.sh clean them up):"; echo "$left" | sed 's/^/    /'; }
 ss -ltn 2>/dev/null | grep -E ':(8000|11434) ' | sed 's/^/  listening: /' || true
