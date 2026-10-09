@@ -9,7 +9,7 @@
   Two SSH connections per call: set up an SSH key to avoid typing the password twice.
 
 .EXAMPLE
-  .\deploy-tassan.ps1 -User "yolaa@ge.polymtl.ca"
+  .\deploy-tassan.ps1 -User "you@ge.polymtl.ca"
   .\deploy-tassan.ps1 -Fetch
 #>
 param(

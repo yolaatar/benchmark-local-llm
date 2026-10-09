@@ -9,8 +9,8 @@
   Needs the Polytechnique VPN and your own tassan login.
 
 .EXAMPLE
-  .\tassan-tunnel.ps1 -User "yolaa@ge.polymtl.ca"
-  $env:TASSAN_USER = "yolaa@ge.polymtl.ca"; .\tassan-tunnel.ps1
+  .\tassan-tunnel.ps1 -User "you@ge.polymtl.ca"
+  $env:TASSAN_USER = "you@ge.polymtl.ca"; .\tassan-tunnel.ps1
 #>
 param(
     [string]$User = $env:TASSAN_USER,

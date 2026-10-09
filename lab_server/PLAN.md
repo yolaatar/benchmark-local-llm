@@ -47,7 +47,7 @@ Status (2026-10-09): Phases 0 to 2 and 5 done, from a Mac. vLLM 0.31.0 runs on t
 
 ```powershell
 cd <...>\benchmark-local-llm\lab_server\client
-$env:TASSAN_USER = "yolaa@ge.polymtl.ca"
+$env:TASSAN_USER = "you@ge.polymtl.ca"
 .\deploy-tassan.ps1
 ```
 

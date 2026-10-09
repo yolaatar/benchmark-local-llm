@@ -23,7 +23,6 @@ your laptop                                            tassan
 ## What you need
 
 - The **Polytechnique VPN**, and a **login on tassan** (the one you use for training jobs, e.g. `you@ge.polymtl.ca`).
-- **Read access to this repo** (it is private: ask Youssef to add your GitHub account).
 - **The lab key** (ask Youssef; he sends it privately).
 - On your laptop: `git`, and on macOS / Linux `python3` and `curl` (already there on macOS); on Windows, PowerShell.
 
